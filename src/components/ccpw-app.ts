@@ -35,7 +35,10 @@ class CCPWApp extends HTMLElement {
       <div class="ccpw-shell">
         <header class="ccpw-header">
           <button class="ccpw-sidebar-toggle" type="button" aria-label="打开导航" aria-expanded="false">☰</button>
-          <h1>Claude 提示词工作台</h1>
+          <div class="ccpw-title-group">
+            <h1>Claude Code 提示台</h1>
+            <p class="ccpw-subtitle">本项目由 Claude Fable 5 + Comet 开发</p>
+          </div>
           <ccpw-theme-toggle></ccpw-theme-toggle>
         </header>
         <div class="ccpw-body">
