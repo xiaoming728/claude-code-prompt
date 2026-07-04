@@ -1,12 +1,29 @@
 import { getStore, setStore, subscribe } from '../state/store.js';
 
-export const NAV_ITEMS: { id: string; label: string }[] = [
-  { id: 'prompts', label: '提示词' },
-  { id: 'openspec', label: 'OpenSpec' },
-  { id: 'superpowers', label: 'Superpowers' },
-  { id: 'ecc', label: 'ECC' },
-  { id: 'gstack', label: 'gstack' },
+export interface NavItem { id: string; label: string; }
+export interface NavGroup { label: string; items: NavItem[]; }
+
+export const NAV_GROUPS: NavGroup[] = [
+  {
+    label: 'Claude Code',
+    items: [
+      { id: 'prompts', label: '提示词' },
+    ],
+  },
+  {
+    label: 'AI 编码最佳实践',
+    items: [
+      { id: 'openspec', label: 'OpenSpec' },
+      { id: 'superpowers', label: 'Superpowers' },
+      { id: 'ecc', label: 'ECC' },
+      { id: 'gstack', label: 'gstack' },
+    ],
+  },
 ];
+
+export function findNavItem(id: string): NavItem | undefined {
+  return NAV_GROUPS.flatMap(g => g.items).find(item => item.id === id);
+}
 
 class CCPWSidebarNav extends HTMLElement {
   private unsub?: () => void;
@@ -16,7 +33,14 @@ class CCPWSidebarNav extends HTMLElement {
     shadow.innerHTML = `
       <style>
         :host { display: block; }
-        nav { display: flex; flex-direction: column; gap: 4px; }
+        nav { display: flex; flex-direction: column; gap: 20px; }
+        .group-label {
+          padding: 0 12px;
+          margin-bottom: 4px;
+          font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+          color: var(--ccpw-text-4); font-family: var(--ccpw-mono);
+        }
+        .group-items { display: flex; flex-direction: column; gap: 4px; }
         button {
           display: block; width: 100%; text-align: left;
           padding: 8px 12px; border-radius: 8px;
@@ -61,15 +85,25 @@ class CCPWSidebarNav extends HTMLElement {
     const nav = this.shadowRoot!.querySelector('nav')!;
     const s = getStore();
     this.classList.toggle('open', s.sidebarOpen);
-    nav.replaceChildren(...NAV_ITEMS.map(item => {
-      const btn = document.createElement('button');
-      btn.type = 'button';
-      btn.textContent = item.label;
-      btn.className = s.activeSection === item.id ? 'active' : '';
-      btn.addEventListener('click', () => {
-        setStore({ activeSection: item.id, sidebarOpen: false });
-      });
-      return btn;
+    nav.replaceChildren(...NAV_GROUPS.map(group => {
+      const section = document.createElement('div');
+      const label = document.createElement('div');
+      label.className = 'group-label';
+      label.textContent = group.label;
+      const items = document.createElement('div');
+      items.className = 'group-items';
+      items.replaceChildren(...group.items.map(item => {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.textContent = item.label;
+        btn.className = s.activeSection === item.id ? 'active' : '';
+        btn.addEventListener('click', () => {
+          setStore({ activeSection: item.id, sidebarOpen: false });
+        });
+        return btn;
+      }));
+      section.replaceChildren(label, items);
+      return section;
     }));
   }
 }

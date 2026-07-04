@@ -72,3 +72,19 @@ export interface Override {
 }
 
 export type Theme = 'system' | 'light' | 'dark';
+
+export interface SectionCommand {
+  name: string;
+  description: string;
+  example?: string;
+  slots?: Record<string, string>;
+}
+
+export interface SectionContent {
+  id: string;
+  label: string;
+  repoUrl: string;
+  intro: string;
+  install: SectionCommand[];
+  usage: SectionCommand[];
+}

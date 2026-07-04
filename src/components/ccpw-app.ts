@@ -8,7 +8,20 @@ import './ccpw-tag-bar.js';
 import './ccpw-prompt-list.js';
 import './ccpw-theme-toggle.js';
 import './ccpw-empty-state.js';
-import { NAV_ITEMS } from './ccpw-sidebar-nav.js';
+import './ccpw-section-content.js';
+import { findNavItem } from './ccpw-sidebar-nav.js';
+import type { SectionContent } from '../types.js';
+import { openspecContent } from '../data/sections/openspec.js';
+import { superpowersContent } from '../data/sections/superpowers.js';
+import { eccContent } from '../data/sections/ecc.js';
+import { gstackContent } from '../data/sections/gstack.js';
+
+const SECTION_DATA: Record<string, SectionContent> = {
+  openspec: openspecContent,
+  superpowers: superpowersContent,
+  ecc: eccContent,
+  gstack: gstackContent,
+};
 
 let catalogReady: Promise<void> | null = null;
 
@@ -53,8 +66,10 @@ class CCPWApp extends HTMLElement {
             </main>
             <footer class="ccpw-footer">
               <button id="ccpw-reset-all" type="button">恢复全部官方默认</button>
+              <a class="ccpw-author" href="https://www.xiaoming728.com/" target="_blank" rel="noopener noreferrer">作者博客：xiaoming728.com</a>
             </footer>
           </div>
+          <ccpw-section-content class="ccpw-section-content" hidden></ccpw-section-content>
           <div class="ccpw-placeholder" hidden></div>
         </div>
         <div class="ccpw-backdrop"></div>
@@ -69,6 +84,7 @@ class CCPWApp extends HTMLElement {
     const toggleBtn = this.querySelector('.ccpw-sidebar-toggle') as HTMLButtonElement;
     const backdrop = this.querySelector('.ccpw-backdrop') as HTMLElement;
     const content = this.querySelector('.ccpw-content') as HTMLElement;
+    const sectionEl = this.querySelector('.ccpw-section-content') as HTMLElement & { data: SectionContent };
     const placeholder = this.querySelector('.ccpw-placeholder') as HTMLElement;
 
     toggleBtn.addEventListener('click', () => {
@@ -83,10 +99,14 @@ class CCPWApp extends HTMLElement {
       backdrop.classList.toggle('open', s.sidebarOpen);
       toggleBtn.setAttribute('aria-expanded', String(s.sidebarOpen));
       const isPrompts = s.activeSection === 'prompts';
+      const sectionData = SECTION_DATA[s.activeSection];
       content.hidden = !isPrompts;
-      placeholder.hidden = isPrompts;
-      if (!isPrompts) {
-        const label = NAV_ITEMS.find(item => item.id === s.activeSection)?.label ?? s.activeSection;
+      sectionEl.hidden = !sectionData;
+      placeholder.hidden = isPrompts || !!sectionData;
+      if (sectionData) {
+        sectionEl.data = sectionData;
+      } else if (!isPrompts) {
+        const label = findNavItem(s.activeSection)?.label ?? s.activeSection;
         placeholder.textContent = `「${label}」板块建设中，敬请期待。`;
       }
     };
