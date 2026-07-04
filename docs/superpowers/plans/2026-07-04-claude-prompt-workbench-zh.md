@@ -2118,17 +2118,17 @@ Expected: 所有测试 PASS。
 **Step 18.4: 手动验收清单(对齐 proposal 验收场景)**
 
 逐项确认并打勾:
-- [ ] 默认展示"新手入门 5 条"
-- [ ] 19 标签筛选 + 阶段×分类分组
-- [ ] 搜索"rate limit"返回相关卡片
-- [ ] 卡片展开后 slot 可编辑
-- [ ] 复制按钮按下后剪贴板 = 拼装后字符串
-- [ ] 刷新页面后编辑仍在
-- [ ] "恢复全部官方默认"按钮清空 overrides
-- [ ] 主题切换按钮在 system/light/dark 间循环
-- [ ] 系统深色模式自动跟随
-- [ ] 扫描线/glow/stagger 动效可见
-- [ ] `prefers-reduced-motion: reduce` 时动效关闭
+- [x] 默认展示"新手入门 5 条"
+- [x] 19 标签筛选 + 阶段×分类分组
+- [x] 搜索"rate limit"返回相关卡片
+- [x] 卡片展开后 slot 可编辑
+- [x] 复制按钮按下后剪贴板 = 拼装后字符串
+- [x] 刷新页面后编辑仍在
+- [x] "恢复全部官方默认"按钮清空 overrides
+- [x] 主题切换按钮在 system/light/dark 间循环
+- [x] 系统深色模式自动跟随
+- [x] 扫描线/glow/stagger 动效可见
+- [x] `prefers-reduced-motion: reduce` 时动效关闭
 
 **Step 18.5: 提交(若验收过程中有修复)**
 

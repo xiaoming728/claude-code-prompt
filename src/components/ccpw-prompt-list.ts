@@ -1,0 +1,71 @@
+import { getStore, subscribe } from '../state/store.js';
+import { filterPrompts, groupByPhaseAndCat } from '../data/prompts.js';
+import type { Prompt, PromptCatalog } from '../types.js';
+import './ccpw-prompt-card.js';
+
+class CCPWPromptList extends HTMLElement {
+  private unsub?: () => void;
+  private readyUnsub?: () => void;
+
+  connectedCallback() {
+    const shadow = this.attachShadow({ mode: 'open' });
+    shadow.innerHTML = `<style>
+      :host { display: block; }
+      .group-h {
+        font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase;
+        color: var(--ccpw-text-4); margin: 24px 0 12px;
+        font-family: var(--ccpw-mono);
+      }
+      .group-h .phase { color: var(--ccpw-text-3); }
+      .grid { display: grid; gap: 12px; }
+    </style><div class="root"></div>`;
+    this.render();
+    this.unsub = subscribe(() => this.render());
+    document.addEventListener('ccpw:catalog-ready', this.render);
+    this.readyUnsub = () => document.removeEventListener('ccpw:catalog-ready', this.render);
+  }
+
+  disconnectedCallback() {
+    this.unsub?.();
+    this.readyUnsub?.();
+  }
+
+  private render = () => {
+    const root = this.shadowRoot?.querySelector('.root') as HTMLElement;
+    if (!root) return;
+    const catalog = (window as any).__ccpwCatalog as PromptCatalog | undefined;
+    if (!catalog) { root.innerHTML = ''; return; }
+    const s = getStore();
+    const filtered = filterPrompts(catalog, { q: s.q, sel: s.sel, start: s.start });
+    document.dispatchEvent(new CustomEvent('ccpw:filtered-count', { detail: filtered.length }));
+
+    if (s.start) {
+      const list = filtered.map((p, i) => this.renderCard(p, i));
+      root.replaceChildren(...list);
+      return;
+    }
+    const groups = groupByPhaseAndCat(filtered);
+    root.replaceChildren(...groups.flatMap(g => [
+      Object.assign(document.createElement('div'), {
+        className: 'group-h', innerHTML: `<span class="phase">${catalog.taxonomy.phaseLabels[g.sdlc]}</span> · ${catalog.taxonomy.catLabels[g.cat]}`,
+      }),
+      Object.assign(document.createElement('div'), {
+        className: 'grid',
+      }),
+    ].map((el, idx) => {
+      if (idx === 1) {
+        (el as HTMLElement).replaceChildren(...g.items.map((p, i) => this.renderCard(p, i)));
+      }
+      return el;
+    })));
+  };
+
+  private renderCard(p: Prompt, i: number): HTMLElement {
+    const card = document.createElement('ccpw-prompt-card') as any;
+    card.prompt = p;
+    card.style.animationDelay = `${i * 30}ms`;
+    return card;
+  }
+}
+
+customElements.define('ccpw-prompt-list', CCPWPromptList);

@@ -1,0 +1,12 @@
+*, *::before, *::after { box-sizing: border-box; }
+* { margin: 0; padding: 0; }
+html, body { height: 100%; }
+body {
+  font-family: var(--ccpw-font-sans);
+  background: var(--ccpw-bg);
+  color: var(--ccpw-text);
+  -webkit-font-smoothing: antialiased;
+  transition: var(--ccpw-transition);
+}
+button { font: inherit; cursor: pointer; background: none; border: none; color: inherit; }
+input, textarea { font: inherit; }

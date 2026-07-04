@@ -8,3 +8,9 @@ playwright-report/
 test-results/
 coverage/
 *.tsbuildinfo
+
+# Tooling / IDE configs (managed by Claude Code / OpenSpec / IntelliJ, not source of the project)
+.claude/
+.idea/
+.superpowers/
+.superpowers/sdd/

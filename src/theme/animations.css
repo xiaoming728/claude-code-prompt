@@ -1,0 +1,20 @@
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes ccpw-glow-pulse {
+    0%, 100% { box-shadow: 0 0 0 0 var(--ccpw-accent-bg); }
+    50% { box-shadow: 0 0 16px 2px var(--ccpw-accent-bg); }
+  }
+  @keyframes ccpw-stagger-in {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes ccpw-chromatic-shift {
+    0%, 100% { text-shadow: none; }
+    50% { text-shadow: -1px 0 var(--ccpw-accent), 1px 0 var(--ccpw-accent-2); }
+  }
+  @keyframes ccpw-scanline {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(100vh); }
+  }
+  .ccpw-card { animation: ccpw-stagger-in 320ms ease both; }
+  .ccpw-card:hover { animation: ccpw-glow-pulse 1.6s ease infinite; }
+}
