@@ -76,7 +76,7 @@ class CCPWPromptCard extends HTMLElement {
     const shadow = this.shadowRoot!;
     shadow.innerHTML = `
       <style>
-        :host { display: block; }
+        :host { display: block; min-width: 0; }
         .card {
           border: 1px solid var(--ccpw-border-subtle);
           border-radius: 12px;
