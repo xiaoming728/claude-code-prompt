@@ -127,6 +127,12 @@ class CCPWSectionContent extends HTMLElement {
         this.copy(text, name);
       });
     });
+    shadow.querySelectorAll<HTMLInputElement>('.slot').forEach(input => {
+      // 输入框宽度跟着内容动态调整,避免长文本被固定宽度截断/隐藏
+      input.addEventListener('input', () => {
+        input.size = Math.max(input.value.length, 6);
+      });
+    });
   }
 
   private renderCmd(cmd: SectionCommand): string {
@@ -152,7 +158,8 @@ class CCPWSectionContent extends HTMLElement {
       if (!m) return `<span>${escapeHtml(part)}</span>`;
       const key = m[1]!;
       const val = cmd.slots?.[key] ?? '';
-      return `<input type="text" class="slot" data-key="${escapeHtml(key)}" value="${escapeHtml(val)}" placeholder="${escapeHtml(key)}" />`;
+      const size = Math.max(val.length, key.length, 6);
+      return `<input type="text" class="slot" data-key="${escapeHtml(key)}" value="${escapeHtml(val)}" placeholder="${escapeHtml(key)}" size="${size}" />`;
     }).join('');
   }
 }

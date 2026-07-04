@@ -153,7 +153,11 @@ class CCPWPromptCard extends HTMLElement {
     const copyBtn = shadow.querySelector('.copy') as HTMLButtonElement | null;
     copyBtn?.addEventListener('click', () => this.copy(this.previewPrompt()));
     shadow.querySelectorAll<HTMLInputElement>('.slot').forEach(input => {
-      input.addEventListener('input', () => this.onSlotChange(input.dataset.key!, input.value));
+      input.addEventListener('input', () => {
+        // 输入框宽度跟着内容动态调整,避免长文本被固定宽度截断/隐藏
+        input.size = Math.max(input.value.length, 6);
+        this.onSlotChange(input.dataset.key!, input.value);
+      });
       // blur 时才重渲染(而不是每次按键都渲染),这样"重置"按钮会在用户
       // 填完离开输入框后出现,同时不会在打字过程中打断输入焦点。
       input.addEventListener('blur', () => this.render());
@@ -173,7 +177,9 @@ class CCPWPromptCard extends HTMLElement {
       if (!m) return `<span>${escapeHtml(part)}</span>`;
       const k = m[1]!;
       const val = slots[k] ?? '';
-      return `<input type="text" class="slot" data-key="${k}" value="${escapeHtml(val)}" placeholder="${escapeHtml(this.prompt.slots?.[k] ?? k)}" />`;
+      const placeholder = this.prompt.slots?.[k] ?? k;
+      const size = Math.max(val.length, placeholder.length, 6);
+      return `<input type="text" class="slot" data-key="${k}" value="${escapeHtml(val)}" placeholder="${escapeHtml(placeholder)}" size="${size}" />`;
     }).join('');
   }
 }
