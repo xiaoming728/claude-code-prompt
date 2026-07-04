@@ -1,7 +1,11 @@
 import { getStore, setStore, subscribe } from '../state/store.js';
 
-const NAV_ITEMS: { id: string; label: string }[] = [
+export const NAV_ITEMS: { id: string; label: string }[] = [
   { id: 'prompts', label: '提示词' },
+  { id: 'openspec', label: 'OpenSpec' },
+  { id: 'superpowers', label: 'Superpowers' },
+  { id: 'ecc', label: 'ECC' },
+  { id: 'gstack', label: 'gstack' },
 ];
 
 class CCPWSidebarNav extends HTMLElement {

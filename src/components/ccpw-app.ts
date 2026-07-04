@@ -8,7 +8,7 @@ import './ccpw-tag-bar.js';
 import './ccpw-prompt-list.js';
 import './ccpw-theme-toggle.js';
 import './ccpw-empty-state.js';
-import './ccpw-sidebar-nav.js';
+import { NAV_ITEMS } from './ccpw-sidebar-nav.js';
 
 let catalogReady: Promise<void> | null = null;
 
@@ -51,6 +51,7 @@ class CCPWApp extends HTMLElement {
               <button id="ccpw-reset-all" type="button">恢复全部官方默认</button>
             </footer>
           </div>
+          <div class="ccpw-placeholder" hidden></div>
         </div>
         <div class="ccpw-backdrop"></div>
       </div>
@@ -64,6 +65,7 @@ class CCPWApp extends HTMLElement {
     const toggleBtn = this.querySelector('.ccpw-sidebar-toggle') as HTMLButtonElement;
     const backdrop = this.querySelector('.ccpw-backdrop') as HTMLElement;
     const content = this.querySelector('.ccpw-content') as HTMLElement;
+    const placeholder = this.querySelector('.ccpw-placeholder') as HTMLElement;
 
     toggleBtn.addEventListener('click', () => {
       setStore({ sidebarOpen: !getStore().sidebarOpen });
@@ -76,7 +78,13 @@ class CCPWApp extends HTMLElement {
       const s = getStore();
       backdrop.classList.toggle('open', s.sidebarOpen);
       toggleBtn.setAttribute('aria-expanded', String(s.sidebarOpen));
-      content.hidden = s.activeSection !== 'prompts';
+      const isPrompts = s.activeSection === 'prompts';
+      content.hidden = !isPrompts;
+      placeholder.hidden = isPrompts;
+      if (!isPrompts) {
+        const label = NAV_ITEMS.find(item => item.id === s.activeSection)?.label ?? s.activeSection;
+        placeholder.textContent = `「${label}」板块建设中，敬请期待。`;
+      }
     };
     syncChrome();
     this.unsub = subscribe(syncChrome);
