@@ -13,6 +13,7 @@ export const NAV_GROUPS: NavGroup[] = [
   {
     label: 'AI 编码最佳实践',
     items: [
+      { id: 'comet', label: 'Comet' },
       { id: 'openspec', label: 'OpenSpec' },
       { id: 'superpowers', label: 'Superpowers' },
       { id: 'ecc', label: 'ECC' },

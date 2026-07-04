@@ -112,6 +112,7 @@ class CCPWSectionContent extends HTMLElement {
       </div>
       <p class="intro">${escapeHtml(c.intro)}</p>
       ${c.install.length ? `<div class="group-label">安装命令</div><div class="cmd-list">${c.install.map(cmd => this.renderCmd(cmd)).join('')}</div>` : ''}
+      ${c.skills.length ? `<div class="group-label">Skill 命令</div><div class="cmd-list">${c.skills.map(cmd => this.renderCmd(cmd)).join('')}</div>` : ''}
       ${c.usage.length ? `<div class="group-label">使用命令</div><div class="cmd-list">${c.usage.map(cmd => this.renderCmd(cmd)).join('')}</div>` : ''}
     `;
     shadow.querySelectorAll<HTMLButtonElement>('.copy').forEach(btn => {

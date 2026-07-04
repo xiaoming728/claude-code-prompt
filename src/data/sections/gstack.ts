@@ -7,7 +7,7 @@ export const gstackContent: SectionContent = {
   intro:
     'gstack 是由 Y Combinator 总裁兼 CEO Garry Tan 开源的工具包，把 Claude Code 变成一支虚拟工程团队：它包含 23 个专职技能，分别对应 CEO、设计师、工程经理、发布工程师、QA 负责人、安全官等角色，全部通过 slash 命令调用。项目旨在解决 AI 辅助开发中常见的问题——缺乏角色结构、规划/构建/评审/测试/发布各环节工作流碎片化、AI 生成代码缺少人工把关，以及跨会话的知识丢失。其核心理念是"配备合适工具的单人开发者能比传统团队跑得更快"，覆盖战略规划、设计、开发、测试、部署、浏览器自动化、知识沉淀、环境配置与安全防护等全流程。',
   install: [],
-  usage: [
+  skills: [
     { name: 'office-hours', description: '通过一系列逼问式问题，对产品想法进行深度质询。', example: '/office-hours' },
     { name: 'plan-ceo-review', description: '以 CEO 视角对计划的战略范围提出挑战（支持 4 种模式）。', example: '/plan-ceo-review' },
     { name: 'plan-eng-review', description: '对计划的架构设计、数据流和边界情况进行工程评审。', example: '/plan-eng-review' },
@@ -52,6 +52,8 @@ export const gstackContent: SectionContent = {
     { name: 'ios-design-review', description: '按 Apple HIG 规范对 iOS 界面进行设计审查。', example: '/ios-design-review' },
     { name: 'ios-clean', description: '清理 iOS 调试桥的相关状态。', example: '/ios-clean' },
     { name: 'ios-sync', description: '重新同步 iOS 访问器（accessor）。', example: '/ios-sync' },
+  ],
+  usage: [
     { name: 'gstack-model-benchmark', description: '独立 CLI，用于跨模型（Claude/GPT/Gemini）性能对比。', example: 'gstack-model-benchmark' },
     { name: 'gstack-taste-update', description: '独立 CLI，用于学习并更新设计偏好。', example: 'gstack-taste-update' },
     { name: 'gstack-ios-qa-daemon', description: '独立 CLI，作为 Mac 端与 iPhone 通信的代理进程。', example: 'gstack-ios-qa-daemon' },

@@ -118,13 +118,18 @@
   border-color: var(--ccpw-accent);
 }
 
-.ccpw-author {
+.ccpw-global-footer {
+  margin-top: 40px;
+  text-align: center;
   font-size: 13px;
+}
+
+.ccpw-global-footer a {
   color: var(--ccpw-text-4);
   transition: color 150ms;
 }
 
-.ccpw-author:hover {
+.ccpw-global-footer a:hover {
   color: var(--ccpw-accent);
 }
 

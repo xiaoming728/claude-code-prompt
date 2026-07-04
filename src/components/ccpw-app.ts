@@ -15,8 +15,10 @@ import { openspecContent } from '../data/sections/openspec.js';
 import { superpowersContent } from '../data/sections/superpowers.js';
 import { eccContent } from '../data/sections/ecc.js';
 import { gstackContent } from '../data/sections/gstack.js';
+import { cometContent } from '../data/sections/comet.js';
 
 const SECTION_DATA: Record<string, SectionContent> = {
+  comet: cometContent,
   openspec: openspecContent,
   superpowers: superpowersContent,
   ecc: eccContent,
@@ -66,12 +68,14 @@ class CCPWApp extends HTMLElement {
             </main>
             <footer class="ccpw-footer">
               <button id="ccpw-reset-all" type="button">恢复全部官方默认</button>
-              <a class="ccpw-author" href="https://www.xiaoming728.com/" target="_blank" rel="noopener noreferrer">作者博客：xiaoming728.com</a>
             </footer>
           </div>
           <ccpw-section-content class="ccpw-section-content" hidden></ccpw-section-content>
           <div class="ccpw-placeholder" hidden></div>
         </div>
+        <footer class="ccpw-global-footer">
+          <a href="https://www.xiaoming728.com" target="_blank" rel="noopener noreferrer">xiaoming728</a>
+        </footer>
         <div class="ccpw-backdrop"></div>
       </div>
     `;

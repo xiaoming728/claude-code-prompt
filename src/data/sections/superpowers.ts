@@ -7,7 +7,7 @@ export const superpowersContent: SectionContent = {
   intro:
     'Superpowers 是一套面向编码 Agent 的完整软件开发方法论，以一组可组合的 Skill（技能）和配套的启动指令为基础构建。它解决的核心问题是：Agent 拿到需求后往往直接开始写代码，跳过澄清、设计和验证环节，导致返工和跑偏。Superpowers 让 Agent 先通过提问理清真实诉求，再分段展示设计供确认，随后拆解为可执行的实施计划，最后以测试驱动、分阶段评审的方式落地。这些 Skill 会根据上下文自动触发，无需手动调用，目前支持 Claude Code、Cursor、Codex 等多种编码 Agent 平台。',
   install: [],
-  usage: [
+  skills: [
     {
       name: 'brainstorming',
       description: '在写代码之前通过苏格拉底式提问打磨想法，探索多种方案并分段展示设计文档供用户确认。',
@@ -81,4 +81,5 @@ export const superpowersContent: SectionContent = {
       slots: { request: '照着 writing-skills 的规范帮我写一个新技能' },
     },
   ],
+  usage: [],
 };

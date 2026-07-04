@@ -18,6 +18,7 @@ export const openspecContent: SectionContent = {
       example: 'openspec update [path] [--force]',
     },
   ],
+  skills: [],
   usage: [
     {
       name: 'openspec list',

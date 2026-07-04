@@ -23,6 +23,13 @@ export const eccContent: SectionContent = {
       example: './install.sh --profile minimal --target claude',
     },
   ],
+  skills: [
+    {
+      name: '/skill-create',
+      description: '基于本地 git 历史分析当前仓库并生成 SKILL.md，可选同时生成 continuous-learning-v2 所需的 instinct。',
+      example: '/skill-create --instincts',
+    },
+  ],
   usage: [
     {
       name: '/ecc:plan',
@@ -75,11 +82,6 @@ export const eccContent: SectionContent = {
       name: '/evolve',
       description: '将相关的 instinct 聚类并演化为可复用的 skill。',
       example: '/evolve',
-    },
-    {
-      name: '/skill-create',
-      description: '基于本地 git 历史分析当前仓库并生成 SKILL.md，可选同时生成 continuous-learning-v2 所需的 instinct。',
-      example: '/skill-create --instincts',
     },
     {
       name: 'npx ecc consult',
