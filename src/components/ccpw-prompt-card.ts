@@ -103,8 +103,8 @@ class CCPWPromptCard extends HTMLElement {
         .prompt-box > span { min-width: 0; }
         .caret { color: var(--ccpw-accent); flex-shrink: 0; }
         .slot { background: rgba(132,204,22,0.15); color: #f0eee6; border: none; border-bottom: 1.5px dashed var(--ccpw-accent); border-radius: 4px 4px 0 0; padding: 2px 6px; margin: 0 1px; outline: none; min-width: 8ch; max-width: 100%; font-family: inherit; }
-        .copy { font-size: 12.5px; padding: 6px 12px; border-radius: 6px; background: var(--ccpw-accent); color: #0a0e14; border: none; font-weight: 500; margin-left: auto; }
-        .reset { font-size: 12.5px; padding: 6px 12px; border-radius: 6px; background: none; border: 1px solid rgba(240,238,230,0.25); color: #f0eee6; font-weight: 500; }
+        .copy { font-size: 12.5px; padding: 6px 12px; border-radius: 6px; background: var(--ccpw-accent); color: #0a0e14; border: none; font-weight: 500; }
+        .reset { font-size: 12.5px; padding: 6px 12px; border-radius: 6px; background: none; border: 1px solid rgba(240,238,230,0.25); color: #f0eee6; font-weight: 500; margin-left: auto; }
         .teaches { font-size: 15.5px; color: var(--ccpw-text-2); line-height: 1.6; margin-top: 4px; }
         .next { display: flex; align-items: baseline; gap: 10px; margin: 14px 0 0; padding: 10px 12px; background: var(--ccpw-accent-bg); border-radius: 8px; font-size: 14.5px; }
         .next-label { font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ccpw-accent); font-weight: 600; flex-shrink: 0; font-family: var(--ccpw-mono); }
@@ -122,7 +122,7 @@ class CCPWPromptCard extends HTMLElement {
             <div class="prompt-box">
               <span class="caret">❯</span>
               ${this.renderPromptBody(slots)}
-              ${ov ? `<button type="button" class="reset">重置</button>` : ''}
+              <button type="button" class="reset">重置</button>
               <button type="button" class="copy">${this.copied ? '已复制' : '复制'}</button>
             </div>
             <div class="label">为什么有效</div>
