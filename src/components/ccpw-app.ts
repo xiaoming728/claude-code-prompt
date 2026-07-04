@@ -58,6 +58,7 @@ class CCPWApp extends HTMLElement {
     this.querySelector('#ccpw-reset-all')!.addEventListener('click', () => {
       clearAllOverrides();
       setStore({ overrides: {} });
+      document.dispatchEvent(new CustomEvent('ccpw:overrides-reset'));
     });
 
     const toggleBtn = this.querySelector('.ccpw-sidebar-toggle') as HTMLButtonElement;

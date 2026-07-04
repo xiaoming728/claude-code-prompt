@@ -18,6 +18,7 @@ class CCPWPromptCard extends HTMLElement {
   connectedCallback() {
     if (!this.shadowRoot) this.attachShadow({ mode: 'open' });
     if (this.prompt) this.render();
+    document.addEventListener('ccpw:overrides-reset', this.handleOverridesReset);
   }
 
   attributeChangedCallback() { /* no-op, use property */ }
@@ -25,7 +26,12 @@ class CCPWPromptCard extends HTMLElement {
   disconnectedCallback() {
     this.unsub?.();
     if (this.copyTimer) clearTimeout(this.copyTimer);
+    document.removeEventListener('ccpw:overrides-reset', this.handleOverridesReset);
   }
+
+  // 单独监听"重置"事件而不是订阅整个 store:store 里每次敲键盘(onSlotChange)
+  // 也会触发,如果重置也走通用 subscribe 会导致输入时卡片被强制重渲染、丢失焦点。
+  private handleOverridesReset = () => this.render();
 
   private toggle() {
     this.open = !this.open;
@@ -63,6 +69,7 @@ class CCPWPromptCard extends HTMLElement {
     const overrides = { ...getStore().overrides };
     delete overrides[this.prompt.id];
     setStore({ overrides });
+    document.dispatchEvent(new CustomEvent('ccpw:overrides-reset'));
   }
 
   private render() {
@@ -97,11 +104,11 @@ class CCPWPromptCard extends HTMLElement {
         .caret { color: var(--ccpw-accent); flex-shrink: 0; }
         .slot { background: rgba(132,204,22,0.15); color: #f0eee6; border: none; border-bottom: 1.5px dashed var(--ccpw-accent); border-radius: 4px 4px 0 0; padding: 2px 6px; margin: 0 1px; outline: none; min-width: 8ch; max-width: 100%; font-family: inherit; }
         .copy { font-size: 12.5px; padding: 6px 12px; border-radius: 6px; background: var(--ccpw-accent); color: #0a0e14; border: none; font-weight: 500; margin-left: auto; }
+        .reset { font-size: 12.5px; padding: 6px 12px; border-radius: 6px; background: none; border: 1px solid rgba(240,238,230,0.25); color: #f0eee6; font-weight: 500; }
         .teaches { font-size: 15.5px; color: var(--ccpw-text-2); line-height: 1.6; margin-top: 4px; }
         .next { display: flex; align-items: baseline; gap: 10px; margin: 14px 0 0; padding: 10px 12px; background: var(--ccpw-accent-bg); border-radius: 8px; font-size: 14.5px; }
         .next-label { font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ccpw-accent); font-weight: 600; flex-shrink: 0; font-family: var(--ccpw-mono); }
         .src { font-size: 13px; color: var(--ccpw-text-4); margin-top: 12px; }
-        .restore { margin-left: 12px; background: none; border: 1px solid var(--ccpw-border); color: var(--ccpw-text-2); padding: 6px 12px; border-radius: 6px; font-size: 13px; }
       </style>
       <div class="card ${this.open ? 'open' : ''} ccpw-card">
         <button type="button" class="head" style="all:unset; display:flex; align-items:baseline; gap:12px; cursor:pointer; width:100%;">
@@ -115,6 +122,7 @@ class CCPWPromptCard extends HTMLElement {
             <div class="prompt-box">
               <span class="caret">❯</span>
               ${this.renderPromptBody(slots)}
+              ${ov ? `<button type="button" class="reset">重置</button>` : ''}
               <button type="button" class="copy">${this.copied ? '已复制' : '复制'}</button>
             </div>
             <div class="label">为什么有效</div>
@@ -126,7 +134,6 @@ class CCPWPromptCard extends HTMLElement {
               </div>
             ` : ''}
             <div class="src">来源:${escapeHtml(srcLabel)}</div>
-            ${ov ? `<button type="button" class="restore">恢复官方默认</button>` : ''}
           </div>
         ` : ''}
       </div>
@@ -138,9 +145,12 @@ class CCPWPromptCard extends HTMLElement {
     copyBtn?.addEventListener('click', () => this.copy(this.previewPrompt()));
     shadow.querySelectorAll<HTMLInputElement>('.slot').forEach(input => {
       input.addEventListener('input', () => this.onSlotChange(input.dataset.key!, input.value));
+      // blur 时才重渲染(而不是每次按键都渲染),这样"重置"按钮会在用户
+      // 填完离开输入框后出现,同时不会在打字过程中打断输入焦点。
+      input.addEventListener('blur', () => this.render());
     });
-    const restoreBtn = shadow.querySelector('.restore') as HTMLButtonElement | null;
-    restoreBtn?.addEventListener('click', () => this.restore());
+    const resetBtn = shadow.querySelector('.reset') as HTMLButtonElement | null;
+    resetBtn?.addEventListener('click', () => this.restore());
   }
 
   private previewPrompt(): string {
