@@ -5,7 +5,7 @@ export const openspecContent: SectionContent = {
   label: 'OpenSpec',
   repoUrl: 'https://github.com/Fission-AI/openspec',
   intro:
-    'OpenSpec 是一个面向 AI 编码助手的 spec-driven development（规格驱动开发）框架，核心目标是让人类与 AI 在动手写代码之前就对"要构建什么"达成一致。它在需求和实现之间加入一层轻量的规格（spec）文档，通过 proposal、design、tasks 等制品固化共识，从而降低 AI 辅助编码中常见的方向跑偏和返工问题。框架同时提供 CLI 工具和一组配套的 slash 命令，覆盖从提出变更、澄清方案、编写任务、实施代码到验证与归档的完整工作流。',
+    'OpenSpec 是一个面向 AI 编码助手的 spec-driven development（规格驱动开发）框架，核心目标是让人类与 AI 在动手写代码之前就对"要构建什么"达成一致。它在需求和实现之间加入一层轻量的规格（spec）文档，通过 proposal、design、tasks 等制品固化共识，从而降低 AI 辅助编码中常见的方向跑偏和返工问题。框架同时提供 CLI 工具和一组配套的 Claude Code Skills，覆盖从探索思路、提出变更、编写规格与任务、实施代码到同步规格与归档的完整工作流。',
   install: [
     {
       name: 'openspec init',
@@ -18,7 +18,38 @@ export const openspecContent: SectionContent = {
       example: 'openspec update [path] [--force]',
     },
   ],
-  skills: [],
+  skills: [
+    {
+      name: '/opsx:propose',
+      description: '一步创建新的 change，并同时生成 proposal、design、tasks 等规划制品。',
+      example: '/opsx:propose {change-name}',
+      slots: { 'change-name': 'add-dark-mode' },
+    },
+    {
+      name: '/opsx:explore',
+      description: '在不创建正式 change 的前提下探索想法、权衡方案、澄清需求。',
+      example: '/opsx:explore {topic}',
+      slots: { topic: '移动端鉴权方案的技术选型' },
+    },
+    {
+      name: '/opsx:apply',
+      description: '按照 change 中的 tasks.md 逐项实施代码，并勾选已完成的任务。',
+      example: '/opsx:apply {change-name}',
+      slots: { 'change-name': 'add-dark-mode' },
+    },
+    {
+      name: '/opsx:sync',
+      description: '将某个 change 的 delta spec 合并进主 spec，而不归档该 change。',
+      example: '/opsx:sync {change-name}',
+      slots: { 'change-name': 'add-dark-mode' },
+    },
+    {
+      name: '/opsx:archive',
+      description: '归档已完成的 change，完成收尾并移入归档目录。',
+      example: '/opsx:archive {change-name}',
+      slots: { 'change-name': 'add-dark-mode' },
+    },
+  ],
   usage: [
     {
       name: 'openspec list',
@@ -46,32 +77,6 @@ export const openspecContent: SectionContent = {
       name: 'openspec view',
       description: '打开交互式仪表盘，浏览项目中所有 change 与 spec 的整体状态。',
       example: 'openspec view',
-    },
-    {
-      name: '/opsx:propose',
-      description: '一步创建新的 change，并同时生成 proposal、design、tasks 等规划制品。',
-      example: '/opsx:propose {change-name}',
-      slots: { 'change-name': 'add-dark-mode' },
-    },
-    {
-      name: '/opsx:explore',
-      description: '在不创建正式 change 的前提下探索想法、权衡方案、澄清需求。',
-      example: '/opsx:explore',
-    },
-    {
-      name: '/opsx:apply',
-      description: '按照 change 中的任务列表逐项实施代码。',
-      example: '/opsx:apply',
-    },
-    {
-      name: '/opsx:sync',
-      description: '将某个 change 的 delta spec 合并进主 spec，而不归档该 change。',
-      example: '/opsx:sync',
-    },
-    {
-      name: '/opsx:archive',
-      description: '归档已完成的 change，完成收尾并移入归档目录。',
-      example: '/opsx:archive',
     },
   ],
 };

@@ -5,7 +5,7 @@ export const cometContent: SectionContent = {
   label: 'Comet',
   repoUrl: 'https://github.com/rpamis/comet',
   intro:
-    'Comet 是一个把 OpenSpec 与 Superpowers 整合为统一五阶段工作流的自动化开发框架（发行形式为 npm 包 @rpamis/comet），定位是"双星工作流"：OpenSpec 负责需求与规格的生命周期管理（"做什么"），Superpowers 负责技术设计与实施方法论（"怎么做"）。它把开发过程拆分为开启、深度设计、计划与构建、验证与收尾、归档五个自动衔接的阶段，通过 .comet.yaml 状态文件和 guard 脚本校验阶段过渡是否合法，支持中断后按检查点恢复，避免长上下文场景下的状态遗忘或跳过前置阶段。项目以 slash 命令和配套 CLI 提供入口，支持 30 余种 AI 编码平台，并包含可将阶段交接 token 消耗降低 25%-30% 的上下文压缩（beta）能力。',
+    'Comet 是一个把 OpenSpec 与 Superpowers 整合为统一五阶段工作流的自动化开发框架（发行形式为 npm 包 @rpamis/comet），定位是"双星工作流"：OpenSpec 负责需求与规格的生命周期管理（"做什么"），Superpowers 负责技术设计与实施方法论（"怎么做"）。它把开发过程拆分为开启、深度设计、计划与构建、验证与收尾、归档五个自动衔接的阶段，通过 .comet.yaml 状态文件和 guard 脚本校验阶段过渡是否合法，支持中断后按检查点恢复，避免长上下文场景下的状态遗忘或跳过前置阶段。项目以 slash 命令和配套 CLI 提供入口，支持 30 余种 AI 编码平台，并包含可将 Design→Build 阶段交接 token 消耗降低 25%-30% 的上下文压缩（beta）能力。',
   install: [
     {
       name: 'npm install -g @rpamis/comet',
@@ -14,18 +14,18 @@ export const cometContent: SectionContent = {
     },
     {
       name: 'npx skills add rpamis/comet',
-      description: '面向支持通用 skills CLI 的平台，通过该命令安装 Comet 技能包。',
+      description: '为使用通用 skills CLI 的平台（如 OpenClaw、Hermes）安装 Comet 技能包。',
       example: 'npx skills add rpamis/comet',
     },
     {
       name: 'comet init',
       description: '在项目中初始化 Comet 工作流，交互式选择目标 AI 平台、安装范围（项目级或全局）、技能语言，以及是否同时安装 OpenSpec、Superpowers、CodeGraph 等依赖。',
-      example: 'comet init [path]',
+      example: 'comet init [path] [--yes] [--scope <scope>] [--language <lang>]',
     },
     {
       name: 'comet update',
       description: '在 npm 包升级后刷新已部署的技能文件，保持 slash 命令为最新版本。',
-      example: 'comet update [path]',
+      example: 'comet update [path] [--scope <scope>] [--language <lang>]',
     },
   ],
   skills: [
@@ -74,22 +74,22 @@ export const cometContent: SectionContent = {
     {
       name: 'comet status',
       description: '查看当前项目中活跃的 change 及推荐的下一步操作。',
-      example: 'comet status [path]',
+      example: 'comet status [path] [--json]',
     },
     {
       name: 'comet dashboard',
       description: '启动本地只读可视化仪表盘，浏览工作流状态。',
-      example: 'comet dashboard [path]',
+      example: 'comet dashboard [path] [--port <port>] [--no-open]',
     },
     {
       name: 'comet doctor',
       description: '诊断本地 Comet 安装是否存在问题。',
-      example: 'comet doctor [path]',
+      example: 'comet doctor [path] [--scope <scope>]',
     },
     {
       name: 'comet uninstall',
-      description: '安全移除 Comet 安装的技能文件与 hooks。',
-      example: 'comet uninstall [path]',
+      description: '安全移除 Comet 安装的技能文件、rules 和 hooks。',
+      example: 'comet uninstall [path] [--force] [--scope <scope>]',
     },
   ],
 };

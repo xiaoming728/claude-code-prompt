@@ -5,8 +5,21 @@ export const gstackContent: SectionContent = {
   label: 'gstack',
   repoUrl: 'https://github.com/garrytan/gstack',
   intro:
-    'gstack 是由 Y Combinator 总裁兼 CEO Garry Tan 开源的工具包，把 Claude Code 变成一支虚拟工程团队：它包含 23 个专职技能，分别对应 CEO、设计师、工程经理、发布工程师、QA 负责人、安全官等角色，全部通过 slash 命令调用。项目旨在解决 AI 辅助开发中常见的问题——缺乏角色结构、规划/构建/评审/测试/发布各环节工作流碎片化、AI 生成代码缺少人工把关，以及跨会话的知识丢失。其核心理念是"配备合适工具的单人开发者能比传统团队跑得更快"，覆盖战略规划、设计、开发、测试、部署、浏览器自动化、知识沉淀、环境配置与安全防护等全流程。',
-  install: [],
+    'gstack 是由 Y Combinator 总裁兼 CEO Garry Tan 开源的工具包，把 Claude Code 变成一支虚拟工程团队：仓库当前收录 44 个专职技能，对应 CEO、设计师、工程经理、发布工程师、QA 负责人、安全官、iOS 测试员等角色，全部通过 slash 命令调用（项目宣传语中的"23 个专职角色"是早期口径，实际命令数已随版本迭代增长）。项目旨在解决 AI 辅助开发中常见的问题——缺乏角色结构、规划/构建/评审/测试/发布各环节工作流碎片化、AI 生成代码缺少人工把关，以及跨会话的知识丢失。其核心理念是"配备合适工具的单人开发者能比传统团队跑得更快"，覆盖战略规划、设计、开发、测试、部署、浏览器自动化、知识沉淀、环境配置与安全防护等全流程。',
+  install: [
+    {
+      name: 'git clone gstack',
+      description: '克隆仓库到 ~/.claude/skills 并运行安装脚本，一次性完成安装。',
+      example:
+        'git clone --single-branch --depth 1 https://github.com/garrytan/gstack.git ~/.claude/skills/gstack && cd ~/.claude/skills/gstack && ./setup',
+    },
+    {
+      name: './setup --host',
+      description: '为 Claude Code 之外的其他 AI 编程平台安装 gstack（支持 cursor、opencode、codex 等）。',
+      example: './setup --host {host}',
+      slots: { host: 'cursor' },
+    },
+  ],
   skills: [
     { name: 'office-hours', description: '通过一系列逼问式问题，对产品想法进行深度质询。', example: '/office-hours' },
     { name: 'plan-ceo-review', description: '以 CEO 视角对计划的战略范围提出挑战（支持 4 种模式）。', example: '/plan-ceo-review' },
@@ -24,7 +37,7 @@ export const gstackContent: SectionContent = {
     { name: 'codex', description: '向 OpenAI Codex CLI 请求第二意见。', example: '/codex' },
     { name: 'investigate', description: '对问题进行系统化的根因排查。', example: '/investigate' },
     { name: 'spec', description: '把模糊的意图转化为可执行的规格说明。', example: '/spec' },
-    { name: 'qa', description: '打开真实浏览器查找并修复 bug，支持自动化测试。', example: '/qa' },
+    { name: 'qa', description: '打开真实浏览器查找并修复 bug，支持自动化测试。', example: '/qa {url}', slots: { url: 'https://staging.myapp.com' } },
     { name: 'qa-only', description: '仅报告 bug，不对代码做任何修改。', example: '/qa-only' },
     { name: 'benchmark', description: '在多个模型之间进行性能对比测试。', example: '/benchmark' },
     { name: 'canary', description: '在部署后进行持续监控的巡检循环。', example: '/canary' },
