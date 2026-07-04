@@ -11,6 +11,8 @@ describe('store', () => {
     expect(s.sel).toBeNull();
     expect(s.start).toBe(true);
     expect(s.overrides).toEqual({});
+    expect(s.activeSection).toBe('prompts');
+    expect(s.sidebarOpen).toBe(false);
   });
 
   it('setter 触发订阅', () => {
@@ -44,5 +46,14 @@ describe('store', () => {
     setStore({ sel: 'debug' as any });
     expect(getStore().q).toBe('foo');
     expect(getStore().sel).toBe('debug');
+  });
+
+  it('activeSection/sidebarOpen 可写入,且 _resetStore 能恢复默认值', () => {
+    setStore({ activeSection: 'other', sidebarOpen: true });
+    expect(getStore().activeSection).toBe('other');
+    expect(getStore().sidebarOpen).toBe(true);
+    _resetStore();
+    expect(getStore().activeSection).toBe('prompts');
+    expect(getStore().sidebarOpen).toBe(false);
   });
 });

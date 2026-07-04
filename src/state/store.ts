@@ -7,6 +7,8 @@ export interface Store {
   start: boolean;
   overrides: Record<string, Override>;
   prefersReducedMotion: boolean;
+  activeSection: string;
+  sidebarOpen: boolean;
 }
 
 const subs = new Set<() => void>();
@@ -17,6 +19,8 @@ let state: Store = {
   start: true,
   overrides: {},
   prefersReducedMotion: false,
+  activeSection: 'prompts',
+  sidebarOpen: false,
 };
 
 export function getStore(): Readonly<Store> {
@@ -43,6 +47,8 @@ export function _resetStore(): void {
     start: true,
     overrides: {},
     prefersReducedMotion: false,
+    activeSection: 'prompts',
+    sidebarOpen: false,
   };
   subs.clear();
 }
