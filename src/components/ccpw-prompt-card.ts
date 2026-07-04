@@ -71,7 +71,6 @@ class CCPWPromptCard extends HTMLElement {
     const catalog = (window as any).__ccpwCatalog as PromptCatalog | undefined;
     const ov = s.overrides[this.prompt.id];
     const slots = { ...(this.prompt.slots ?? {}), ...(ov?.slots ?? {}) };
-    const finalPrompt = assemblePrompt(this.prompt, ov);
     const srcLabel = catalog?.taxonomy.sourceLabels[this.prompt.src] ?? this.prompt.src;
 
     const shadow = this.shadowRoot!;
@@ -84,6 +83,7 @@ class CCPWPromptCard extends HTMLElement {
           background: var(--ccpw-bg); overflow: hidden;
           padding: 18px 22px; transition: border-color 200ms;
           font-family: var(--ccpw-font-sans);
+          min-width: 0; overflow-wrap: break-word; word-break: break-word;
         }
         .card.open { border-color: var(--ccpw-border); background: var(--ccpw-surface); }
         .head { display: flex; align-items: baseline; gap: 12px; }
@@ -92,7 +92,8 @@ class CCPWPromptCard extends HTMLElement {
         .preview { display: block; font-family: var(--ccpw-mono); font-size: 13.5px; color: var(--ccpw-text-3); margin-top: 6px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
         .body { margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--ccpw-border-subtle); }
         .label { font-size: 11.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ccpw-text-4); margin: 12px 0 8px; font-family: var(--ccpw-mono); }
-        .prompt-box { display: flex; align-items: center; gap: 10px; padding: 14px 16px; background: #0a0e14; color: #f0eee6; border-radius: 8px; font-family: var(--ccpw-mono); font-size: 15px; flex-wrap: wrap; }
+        .prompt-box { display: flex; align-items: center; gap: 10px; padding: 14px 16px; background: #0a0e14; color: #f0eee6; border-radius: 8px; font-family: var(--ccpw-mono); font-size: 15px; flex-wrap: wrap; min-width: 0; }
+        .prompt-box > span { min-width: 0; }
         .caret { color: var(--ccpw-accent); flex-shrink: 0; }
         .slot { background: rgba(132,204,22,0.15); color: #f0eee6; border: none; border-bottom: 1.5px dashed var(--ccpw-accent); border-radius: 4px 4px 0 0; padding: 2px 6px; margin: 0 1px; outline: none; min-width: 8ch; max-width: 100%; font-family: inherit; }
         .copy { font-size: 12.5px; padding: 6px 12px; border-radius: 6px; background: var(--ccpw-accent); color: #0a0e14; border: none; font-weight: 500; margin-left: auto; }
@@ -134,7 +135,7 @@ class CCPWPromptCard extends HTMLElement {
     const headBtn = shadow.querySelector('.head') as HTMLButtonElement;
     headBtn?.addEventListener('click', () => this.toggle());
     const copyBtn = shadow.querySelector('.copy') as HTMLButtonElement | null;
-    copyBtn?.addEventListener('click', () => this.copy(finalPrompt));
+    copyBtn?.addEventListener('click', () => this.copy(this.previewPrompt()));
     shadow.querySelectorAll<HTMLInputElement>('.slot').forEach(input => {
       input.addEventListener('input', () => this.onSlotChange(input.dataset.key!, input.value));
     });

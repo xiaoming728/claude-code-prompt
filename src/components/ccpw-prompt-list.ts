@@ -6,6 +6,7 @@ import './ccpw-prompt-card.js';
 class CCPWPromptList extends HTMLElement {
   private unsub?: () => void;
   private readyUnsub?: () => void;
+  private lastSignature?: string;
 
   connectedCallback() {
     const shadow = this.attachShadow({ mode: 'open' });
@@ -39,6 +40,12 @@ class CCPWPromptList extends HTMLElement {
     const s = getStore();
     const filtered = filterPrompts(catalog, { q: s.q, sel: s.sel, start: s.start });
     document.dispatchEvent(new CustomEvent('ccpw:filtered-count', { detail: filtered.length }));
+
+    // 只有筛选结果实际变化时才重建卡片 DOM,避免填写 slot 输入框等无关 store
+    // 变化(如主题切换、侧边栏抽屉开关)把正在编辑/展开的卡片整个销毁重建。
+    const signature = `${s.start}|${filtered.map(p => p.id).join(',')}`;
+    if (signature === this.lastSignature) return;
+    this.lastSignature = signature;
 
     if (s.start) {
       const list = filtered.map((p, i) => this.renderCard(p, i));
