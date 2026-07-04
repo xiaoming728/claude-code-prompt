@@ -36,6 +36,11 @@
   align-items: start;
 }
 
+.ccpw-content main {
+  display: block;
+  margin-top: 32px;
+}
+
 .ccpw-backdrop {
   display: none;
 }
