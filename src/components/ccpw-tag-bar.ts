@@ -18,7 +18,7 @@ class CCPWTagBar extends HTMLElement {
           color: var(--ccpw-text-2); font-size: 14px;
           transition: all 200ms;
         }
-        button:hover { background: var(--ccpw-surface); border-color: var(--ccpw-accent); }
+        button:hover { background: var(--ccpw-accent-bg); border-color: var(--ccpw-accent); }
         button.on { background: var(--ccpw-accent); border-color: var(--ccpw-accent); color: #0a0e14; font-weight: 500; }
         button.on:hover { filter: brightness(1.08); }
         button.start { color: var(--ccpw-accent); }

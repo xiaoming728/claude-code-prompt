@@ -24,7 +24,7 @@ class CCPWSidebarNav extends HTMLElement {
           transition: background-color 150ms, color 150ms;
           background: none; border: none; cursor: pointer; font-family: inherit;
         }
-        button:hover { background: var(--ccpw-surface); }
+        button:hover { background: var(--ccpw-accent-bg); }
         button.active {
           background: var(--ccpw-accent-bg);
           color: var(--ccpw-accent);

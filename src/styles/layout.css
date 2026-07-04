@@ -40,7 +40,7 @@
 }
 
 .ccpw-sidebar-toggle:hover {
-  background: var(--ccpw-surface);
+  background: var(--ccpw-accent-bg);
   border-color: var(--ccpw-accent);
 }
 
@@ -55,6 +55,20 @@
   display: flex;
   flex-direction: column;
   gap: 24px;
+}
+
+.ccpw-source-note {
+  font-size: 13px;
+  color: var(--ccpw-text-4);
+  margin-bottom: -8px;
+}
+
+.ccpw-source-note a {
+  color: var(--ccpw-accent);
+}
+
+.ccpw-source-note a:hover {
+  text-decoration: underline;
 }
 
 .ccpw-content[hidden] {
@@ -93,7 +107,7 @@
 }
 
 .ccpw-footer button:hover {
-  background: var(--ccpw-surface);
+  background: var(--ccpw-accent-bg);
   border-color: var(--ccpw-accent);
 }
 

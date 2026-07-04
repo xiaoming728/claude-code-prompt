@@ -19,7 +19,7 @@ class CCPWThemeToggle extends HTMLElement {
           color: var(--ccpw-text); font-family: var(--ccpw-mono);
           font-size: 14px; transition: all 200ms;
         }
-        button:hover { background: var(--ccpw-surface); border-color: var(--ccpw-accent); }
+        button:hover { background: var(--ccpw-accent-bg); border-color: var(--ccpw-accent); }
       </style>
       <button type="button" aria-label="切换主题"></button>
     `;

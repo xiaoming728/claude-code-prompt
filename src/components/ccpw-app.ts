@@ -44,6 +44,7 @@ class CCPWApp extends HTMLElement {
         <div class="ccpw-body">
           <ccpw-sidebar-nav></ccpw-sidebar-nav>
           <div class="ccpw-content">
+            <p class="ccpw-source-note">提示词内容翻译整理自 Claude Code 官方文档 <a href="https://code.claude.com/docs/en/prompt-library" target="_blank" rel="noopener noreferrer">Prompt Library</a>，并针对中文语境做了本地化优化。</p>
             <ccpw-search></ccpw-search>
             <ccpw-tag-bar></ccpw-tag-bar>
             <main>
