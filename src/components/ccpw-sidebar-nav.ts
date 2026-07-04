@@ -18,6 +18,7 @@ class CCPWSidebarNav extends HTMLElement {
           padding: 8px 12px; border-radius: 8px;
           color: var(--ccpw-text-2); font-size: 14.5px;
           transition: background-color 150ms, color 150ms;
+          background: none; border: none; cursor: pointer; font-family: inherit;
         }
         button:hover { background: var(--ccpw-surface); }
         button.active {
@@ -31,11 +32,12 @@ class CCPWSidebarNav extends HTMLElement {
             padding: 20px 16px; background: var(--ccpw-bg);
             border-right: 1px solid var(--ccpw-border);
             transform: translateX(-100%);
-            transition: transform 200ms ease;
+            transition: transform 200ms ease, visibility 200ms ease;
+            visibility: hidden;
             z-index: 50;
             overflow-y: auto;
           }
-          :host(.open) { transform: translateX(0); }
+          :host(.open) { transform: translateX(0); visibility: visible; }
         }
         @media (prefers-reduced-motion: reduce) {
           :host { transition: none; }
