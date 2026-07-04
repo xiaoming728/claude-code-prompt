@@ -93,7 +93,12 @@ class CCPWPromptCard extends HTMLElement {
           min-width: 0; overflow-wrap: break-word; word-break: break-word;
         }
         .card.open { border-color: var(--ccpw-border); background: var(--ccpw-surface); }
-        .head { display: flex; align-items: baseline; gap: 12px; }
+        .head {
+          display: flex; align-items: baseline; gap: 12px;
+          padding: 6px 8px; margin: -6px -8px;
+          border-radius: 8px; transition: background-color 150ms;
+        }
+        .head:hover { background: var(--ccpw-accent-bg); }
         .title { flex: 1; font-size: 17.5px; font-weight: 500; color: var(--ccpw-text); cursor: pointer; transition: color 150ms; }
         .head:hover .title { color: var(--ccpw-accent); }
         .chip { font-size: 11px; padding: 3px 9px; border-radius: 999px; background: var(--ccpw-accent-bg); color: var(--ccpw-accent); font-family: var(--ccpw-mono); }
@@ -106,9 +111,9 @@ class CCPWPromptCard extends HTMLElement {
         .slot { background: rgba(132,204,22,0.15); color: #f0eee6; border: none; border-bottom: 1.5px dashed var(--ccpw-accent); border-radius: 4px 4px 0 0; padding: 2px 6px; margin: 0 1px; outline: none; min-width: 8ch; max-width: 100%; font-family: inherit; transition: background-color 150ms; }
         .slot:hover { background: rgba(132,204,22,0.24); }
         .copy { font-size: 12.5px; padding: 6px 12px; border-radius: 6px; background: var(--ccpw-accent); color: #0a0e14; border: none; font-weight: 500; transition: filter 150ms; }
-        .copy:hover { filter: brightness(1.1); }
-        .reset { font-size: 12.5px; padding: 6px 12px; border-radius: 6px; background: none; border: 1px solid rgba(240,238,230,0.25); color: #f0eee6; font-weight: 500; margin-left: auto; transition: background-color 150ms, border-color 150ms; }
-        .reset:hover { background: rgba(240,238,230,0.1); border-color: rgba(240,238,230,0.45); }
+        .copy:hover { filter: brightness(0.9); }
+        .reset { font-size: 12.5px; padding: 6px 12px; border-radius: 6px; background: none; border: 1px solid rgba(240,238,230,0.25); color: #f0eee6; font-weight: 500; margin-left: auto; transition: background-color 150ms, border-color 150ms, color 150ms; }
+        .reset:hover { background: rgba(240,238,230,0.18); border-color: rgba(240,238,230,0.6); color: #ffffff; }
         .teaches { font-size: 15.5px; color: var(--ccpw-text-2); line-height: 1.6; margin-top: 4px; }
         .next { display: flex; align-items: baseline; gap: 10px; margin: 14px 0 0; padding: 10px 12px; background: var(--ccpw-accent-bg); border-radius: 8px; font-size: 14.5px; }
         .next-label { font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ccpw-accent); font-weight: 600; flex-shrink: 0; font-family: var(--ccpw-mono); }
