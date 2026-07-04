@@ -59,10 +59,10 @@ export function filterPrompts(catalog: PromptCatalog, opts: FilterOpts): Prompt[
   }
   if (opts.sel) {
     const tag = opts.sel;
+    const catMap: Record<string, string> = { understand: 'Understand', plan: 'Plan', prototype: 'Prototype', build: 'Implement', test: 'Test', refactor: 'Refactor', review: 'Review', steer: 'Steer', debug: 'Debug', git: 'Git', release: 'Release', data: 'Data', automate: 'Automate' };
     list = list.filter(p => {
       // sel 可以是 cat(understand/plan/...) 或 role(pm/design/...)
-      if (CATS.includes(tag as Cat)) {
-        const catMap: Record<string, string> = { understand: 'Understand', plan: 'Plan', prototype: 'Prototype', build: 'Implement', test: 'Test', refactor: 'Refactor', review: 'Review', steer: 'Steer', debug: 'Debug', git: 'Git', release: 'Release', data: 'Data', automate: 'Automate' };
+      if (tag in catMap) {
         return p.cat === catMap[tag];
       }
       return p.roles.includes(tag);

@@ -45,6 +45,11 @@ describe('filterPrompts', () => {
     expect(r.map(p => p.id)).toEqual(['p2']);
   });
 
+  it('按 sel(cat 标签,如 understand/plan) 过滤', () => {
+    expect(filterPrompts(catalog, { sel: 'understand' }).map(p => p.id)).toEqual(['p1']);
+    expect(filterPrompts(catalog, { sel: 'plan' }).map(p => p.id)).toEqual(['p2']);
+  });
+
   it('start=true 仅返回 startN 有值且按 startN 排序', () => {
     const r = filterPrompts(catalog, { start: true });
     expect(r.map(p => p.id)).toEqual(['p3']);
