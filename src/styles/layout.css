@@ -36,9 +36,10 @@
   align-items: start;
 }
 
-.ccpw-content main {
-  display: block;
-  margin-top: 32px;
+.ccpw-content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }
 
 .ccpw-backdrop {

@@ -8,7 +8,7 @@ class CCPWSearch extends HTMLElement {
     const shadow = this.attachShadow({ mode: 'open' });
     shadow.innerHTML = `
       <style>
-        :host { display: block; margin: 16px 0; }
+        :host { display: block; }
         .wrap {
           display: flex; align-items: center; gap: 10px;
           padding: 12px 16px; border: 1px solid var(--ccpw-border);

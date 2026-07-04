@@ -48,8 +48,9 @@ class CCPWPromptList extends HTMLElement {
     this.lastSignature = signature;
 
     if (s.start) {
-      const list = filtered.map((p, i) => this.renderCard(p, i));
-      root.replaceChildren(...list);
+      const grid = Object.assign(document.createElement('div'), { className: 'grid' });
+      grid.replaceChildren(...filtered.map((p, i) => this.renderCard(p, i)));
+      root.replaceChildren(grid);
       return;
     }
     const groups = groupByPhaseAndCat(filtered);
