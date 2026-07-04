@@ -4,10 +4,10 @@ sdlc: operate
 cat: Data
 roles: ['marketing', 'data']
 prompt: |
-  read {file}, find the underperforming {items}, and generate {n} new variations that stay under {limit} characters
+  读取 {file}，找出表现不佳的 {items}，生成 {n} 个不超过 {limit} 个字符的新变体
 slots:
   file: "@ads-performance.csv"
-  items: "headlines"
+  items: "标题"
   n: "20"
   limit: "90"
 paste: csv

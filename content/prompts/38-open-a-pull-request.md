@@ -4,10 +4,10 @@ sdlc: ship
 cat: Git
 roles: []
 prompt: |
-  find the {tracker} ticket about {topic} and open a PR that implements it
+  找到 {tracker} 里关于 {topic} 的工单，然后发起一个实现它的 PR
 slots:
   tracker: "Linear"
-  topic: "the login timeout"
+  topic: "登录超时问题"
 needs: tracker
 src: workflows
 title: 从一个工单发起 pull request

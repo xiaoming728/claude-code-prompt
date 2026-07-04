@@ -5,7 +5,7 @@ cat: Review
 startN: 5
 roles: []
 prompt: |
-  review my uncommitted changes and flag anything that looks risky before I commit
+  在我提交之前，审查我尚未提交的改动，标记出任何看起来有风险的地方
 nextHref: /en/commands
 src: workflows
 title: 提交前先审查你的改动

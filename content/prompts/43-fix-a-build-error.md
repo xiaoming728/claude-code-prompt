@@ -4,7 +4,7 @@ sdlc: operate
 cat: Debug
 roles: ['ops']
 prompt: |
-  here is a build error. fix the root cause and verify the build succeeds
+  这是一个构建错误。修复根本原因，并验证构建能够成功
 paste: error
 src: best-practices
 title: 从根源上修复一个构建错误

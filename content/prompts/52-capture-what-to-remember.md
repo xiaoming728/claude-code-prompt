@@ -4,7 +4,7 @@ sdlc: operate
 cat: Automate
 roles: ['pm', 'docs']
 prompt: |
-  summarize what we did this session and suggest what to add to CLAUDE.md
+  总结一下我们这次会话做了什么，并建议应该往 CLAUDE.md 里添加什么
 src: teams
 title: 记录下次要记住的东西
 teaches: |

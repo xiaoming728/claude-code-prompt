@@ -4,10 +4,10 @@ sdlc: build
 cat: Refactor
 roles: []
 prompt: |
-  migrate everything from {from} to {to}: identify every place that needs to change, then make the changes
+  把所有内容从 {from} 迁移到 {to}：先找出每一处需要修改的地方，然后再进行修改
 slots:
-  from: "the old logging API"
-  to: "the structured logger"
+  from: "旧的日志 API"
+  to: "结构化日志记录器"
 src: workflows
 title: 在整个代码库中迁移一种模式
 teaches: |

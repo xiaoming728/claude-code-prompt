@@ -5,7 +5,7 @@ cat: Debug
 startN: 3
 roles: []
 prompt: |
-  the {test} test is failing, find out why and fix it
+  {test} 这个测试失败了，找出原因并修复它
 slots:
   test: "UserAuth"
 src: workflows

@@ -4,7 +4,7 @@ sdlc: design
 cat: Plan
 roles: ['pm']
 prompt: |
-  read {input} and write up the action items, then create a {tracker} ticket for each with acceptance criteria
+  读取 {input}，整理出行动项，然后为每一项在 {tracker} 中创建一张带验收标准的工单
 slots:
   input: "@meeting-notes.md"
   tracker: "Linear"

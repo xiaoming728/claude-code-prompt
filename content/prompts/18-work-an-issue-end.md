@@ -4,7 +4,7 @@ sdlc: build
 cat: Implement
 roles: []
 prompt: |
-  read issue #{issue}, implement the fix, and run the tests
+  读取 issue #{issue}，实现修复，并运行测试
 slots:
   issue: "312"
 needs: gh

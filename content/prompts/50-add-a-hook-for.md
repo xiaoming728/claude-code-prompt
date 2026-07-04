@@ -4,10 +4,10 @@ sdlc: operate
 cat: Automate
 roles: []
 prompt: |
-  write a hook that {action} after every {event}
+  写一个 hook，在每次 {event} 之后 {action}
 slots:
-  action: "runs prettier"
-  event: "edit to a .ts or .tsx file"
+  action: "运行 prettier"
+  event: "编辑 .ts 或 .tsx 文件"
 src: best-practices
 title: 为重复行为添加一个 hook
 teaches: |

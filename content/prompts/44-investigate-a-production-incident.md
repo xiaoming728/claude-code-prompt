@@ -4,9 +4,9 @@ sdlc: operate
 cat: Incident
 roles: ['ops', 'security']
 prompt: |
-  {symptom}. check the logs, recent deploys, and config changes, then tell me the most likely cause
+  {symptom}。查一下日志、最近的部署和配置改动，然后告诉我最可能的原因
 slots:
-  symptom: "the checkout endpoint started returning 500s an hour ago"
+  symptom: "结算接口从一小时前开始返回 500 错误"
 nextHref: /en/mcp
 src: workflows
 title: 排查一起生产环境事故

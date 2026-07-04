@@ -4,9 +4,9 @@ sdlc: design
 cat: Plan
 roles: ['pm']
 prompt: |
-  I want to build {feature}. interview me about implementation, UX, edge cases, and tradeoffs until we have covered everything, then write the spec to SPEC.md
+  我想构建 {feature}。就实现方式、用户体验、边界情况和权衡对我进行访谈，直到我们覆盖了所有要点，然后把规格说明写入 SPEC.md
 slots:
-  feature: "per-workspace rate limits"
+  feature: "按工作区隔离的速率限制"
 nextHref: /en/skills
 src: best-practices
 title: 通过访谈来起草规格说明

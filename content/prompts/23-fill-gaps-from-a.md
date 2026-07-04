@@ -4,7 +4,7 @@ sdlc: build
 cat: Test
 roles: []
 prompt: |
-  read {report} and add tests for the lowest-covered files until each is above {target}%
+  读取 {report}，为覆盖率最低的文件补充测试，直到每个文件都超过 {target}%
 slots:
   report: "coverage/coverage-summary.json"
   target: "80"

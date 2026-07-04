@@ -4,10 +4,10 @@ sdlc: build
 cat: Implement
 roles: []
 prompt: |
-  add a {endpoint} endpoint that returns {payload}
+  添加一个 {endpoint} 接口，返回 {payload}
 slots:
   endpoint: "/health"
-  payload: "the app version and uptime"
+  payload: "应用版本号和运行时长"
 src: workflows
 title: 添加一个小而明确的功能
 teaches: |

@@ -4,7 +4,7 @@ sdlc: build
 cat: Implement
 roles: ['design', 'docs', 'marketing']
 prompt: |
-  find every place we say "{copy}" or a close variant, show me each one in context, then update them all to "{new}". leave tests and the changelog alone
+  找出所有写着"{copy}"或近似说法的地方，把每一处连同上下文展示给我，然后把它们全部改成"{new}"。测试和更新日志不要动
 slots:
   copy: "Sign up free"
   new: "Start free trial"

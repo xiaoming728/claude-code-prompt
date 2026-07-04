@@ -5,7 +5,7 @@ cat: Onboard
 startN: 1
 roles: []
 prompt: |
-  give me an overview of this codebase: architecture, key directories, and how the pieces connect
+  帮我梳理一下这个代码库的全貌：架构、关键目录，以及各部分是如何衔接的
 nextHref: /en/memory
 src: workflows
 title: 快速熟悉一个新仓库

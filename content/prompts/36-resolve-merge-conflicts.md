@@ -4,7 +4,7 @@ sdlc: ship
 cat: Git
 roles: []
 prompt: |
-  resolve the merge conflicts in this branch and explain what you kept from each side
+  解决这个分支上的合并冲突，并说明你从每一侧各保留了什么
 src: workflows
 title: 解决合并冲突
 teaches: |

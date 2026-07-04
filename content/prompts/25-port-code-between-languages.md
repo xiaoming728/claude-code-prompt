@@ -4,11 +4,11 @@ sdlc: build
 cat: Refactor
 roles: []
 prompt: |
-  port {source} to {target}, keeping the same {keep}
+  把 {source} 移植到 {target}，保持相同的 {keep}
 slots:
-  source: "this Python module"
+  source: "这个 Python 模块"
   target: "Rust"
-  keep: "public API and test behavior"
+  keep: "公共 API 和测试行为"
 src: teams
 title: 把代码移植到另一种语言
 teaches: |

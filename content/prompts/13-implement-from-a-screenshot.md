@@ -4,7 +4,7 @@ sdlc: design
 cat: Prototype
 roles: ['design']
 prompt: |
-  implement this design, then take a screenshot of the result, compare it to the original, and fix any differences
+  实现这个设计，然后给结果截图，和原图对比，修复任何差异
 needs: browser
 paste: design
 nextHref: /en/goal

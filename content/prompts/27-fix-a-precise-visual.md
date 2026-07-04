@@ -4,12 +4,12 @@ sdlc: build
 cat: Refactor
 roles: ['design']
 prompt: |
-  the {element} extends {amount} beyond the {container} on {viewport}. fix it.
+  {element} 在 {viewport} 上超出了 {container} 达 {amount}。修复它。
 slots:
-  element: "login button"
+  element: "登录按钮"
   amount: "20px"
-  container: "card border"
-  viewport: "mobile"
+  container: "卡片边框"
+  viewport: "移动端"
 nextHref: /en/desktop#preview-your-app
 src: ebook
 title: 修复一处精确的视觉 bug

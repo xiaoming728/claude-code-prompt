@@ -4,7 +4,7 @@ sdlc: ship
 cat: Release
 roles: ['pm', 'docs', 'marketing']
 prompt: |
-  compare {from} to {to} and draft release notes grouped by feature, fix, and breaking change
+  对比 {from} 和 {to}，起草一份按新功能、修复和破坏性变更分类的发布说明
 slots:
   from: "v2.3.0"
   to: "v2.4.0"

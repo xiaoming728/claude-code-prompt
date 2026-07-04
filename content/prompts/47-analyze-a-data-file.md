@@ -4,10 +4,10 @@ sdlc: operate
 cat: Data
 roles: ['data', 'pm', 'marketing']
 prompt: |
-  read {file}, summarize the key patterns, and write the results to {output}
+  读取 {file}，总结其中的关键规律，并把结果写入 {output}
 slots:
   file: "@reports/q1-signups.csv"
-  output: "an HTML page with charts, then open it in my browser"
+  output: "一个带图表的 HTML 页面，然后在浏览器里打开它"
 paste: csv
 nextHref: /en/mcp
 src: teams

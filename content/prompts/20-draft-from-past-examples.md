@@ -4,11 +4,11 @@ sdlc: build
 cat: Implement
 roles: ['docs', 'marketing', 'pm']
 prompt: |
-  read the {examples} in {folder} to learn the structure and voice, then draft a new one for {topic}
+  阅读 {folder} 里的 {examples}，学习其结构和语气，然后为 {topic} 起草一份新的
 slots:
-  examples: "privacy impact assessments"
+  examples: "隐私影响评估报告"
   folder: "legal/pia/"
-  topic: "the new analytics integration"
+  topic: "新的分析功能集成"
 nextHref: /en/skills
 src: legal
 title: 参照过往范例起草文档

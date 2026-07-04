@@ -4,9 +4,9 @@ sdlc: ship
 cat: Release
 roles: ['ops']
 prompt: |
-  write a GitHub Actions workflow that {steps} on every push to {branch}
+  写一个 GitHub Actions 工作流，在每次推送到 {branch} 时 {steps}
 slots:
-  steps: "runs the tests and deploys to staging"
+  steps: "运行测试并部署到预发布环境"
   branch: "main"
 src: workflows
 title: 编写一个 CI 工作流

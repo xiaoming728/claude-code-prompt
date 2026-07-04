@@ -4,10 +4,10 @@ sdlc: discover
 cat: Understand
 roles: []
 prompt: |
-  explain what {path} does and how data flows through it. write it up as {format}
+  解释一下 {path} 是做什么的、数据是如何在其中流转的，然后把结果写成 {format}
 slots:
   path: "src/scheduler/queue.ts"
-  format: "an HTML page with a diagram, then open it in my browser"
+  format: "一个带图表的 HTML 页面，然后在浏览器里打开它"
 nextHref: /en/output-styles
 src: workflows
 title: 讲解陌生的代码

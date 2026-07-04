@@ -4,10 +4,10 @@ sdlc: build
 cat: Refactor
 roles: ['data']
 prompt: |
-  optimize {target} to bring {metric} from {current} down to under {goal}
+  优化 {target}，把 {metric} 从 {current} 降到 {goal} 以下
 slots:
-  target: "the search query"
-  metric: "p95 latency"
+  target: "搜索查询"
+  metric: "p95 延迟"
   current: "2s"
   goal: "500ms"
 nextHref: /en/goal

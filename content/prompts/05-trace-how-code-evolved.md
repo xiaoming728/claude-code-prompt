@@ -4,7 +4,7 @@ sdlc: discover
 cat: Understand
 roles: []
 prompt: |
-  look through the commit history of {path} and summarize how it evolved and why
+  查看 {path} 的提交历史，总结它是如何演变的、以及背后的原因
 slots:
   path: "internal/auth/session.go"
 src: best-practices

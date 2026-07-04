@@ -4,7 +4,7 @@ sdlc: ship
 cat: Git
 roles: []
 prompt: |
-  commit these changes with a message that summarizes what I did
+  用一条能概括我做了什么的信息，提交这些改动
 src: workflows
 title: 用自动生成的信息提交
 teaches: |

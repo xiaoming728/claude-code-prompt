@@ -4,7 +4,7 @@ sdlc: build
 cat: Review
 roles: ['security']
 prompt: |
-  use a subagent to review {path} for security issues and report what it finds
+  用一个子智能体审查 {path} 是否存在安全问题，并汇报它的发现
 slots:
   path: "src/api/"
 nextHref: /en/sub-agents

@@ -4,10 +4,10 @@ sdlc: design
 cat: Plan
 roles: ['pm', 'design']
 prompt: |
-  plan how to refactor the {target} to {goal}. list the files you would change, but don't edit anything yet
+  规划一下如何重构 {target} 以实现 {goal}。列出你会改动的文件，但先不要动手改
 slots:
-  target: "payment module"
-  goal: "support multiple currencies"
+  target: "支付模块"
+  goal: "支持多币种"
 src: workflows
 title: 动代码前先规划跨文件改动
 teaches: |

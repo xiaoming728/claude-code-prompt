@@ -4,10 +4,10 @@ sdlc: discover
 cat: Understand
 roles: ['pm']
 prompt: |
-  I am a {role}. walk me through what happens when a user {action}, from the UI down to the result
+  我是一名{role}。给我讲讲当用户{action}时会发生什么，从界面一路讲到最终结果
 slots:
-  role: "PM"
-  action: "clicks Export to PDF"
+  role: "产品经理"
+  action: "点击「导出为 PDF」"
 nextHref: /en/output-styles
 src: teams
 title: 向代码库提一个产品问题

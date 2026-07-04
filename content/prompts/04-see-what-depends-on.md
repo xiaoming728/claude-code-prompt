@@ -4,9 +4,9 @@ sdlc: discover
 cat: Understand
 roles: []
 prompt: |
-  what would break if I deleted {target}?
+  如果我删除 {target}，会破坏什么？
 slots:
-  target: "the retryWithBackoff helper"
+  target: "retryWithBackoff 这个辅助函数"
 src: workflows
 title: 删除前先检查会破坏什么
 teaches: |

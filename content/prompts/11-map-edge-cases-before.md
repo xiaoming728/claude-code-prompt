@@ -4,9 +4,9 @@ sdlc: design
 cat: Plan
 roles: ['design', 'pm']
 prompt: |
-  list the error states, empty states, and edge cases for {feature} that the design needs to cover
+  列出 {feature} 中设计需要覆盖的错误状态、空状态和边界情况
 slots:
-  feature: "the file upload flow"
+  feature: "文件上传流程"
 src: teams
 title: 动手前先梳理边界情况
 teaches: |

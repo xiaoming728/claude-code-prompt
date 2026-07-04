@@ -4,7 +4,7 @@ sdlc: design
 cat: Prototype
 roles: ['design', 'pm', 'marketing']
 prompt: |
-  here is a mockup. build a working prototype I can click through, matching the layout and states shown
+  这是一份设计稿。做一个可以点击的可运行原型，匹配图中展示的布局和各种状态
 paste: mockup
 src: teams
 title: 把设计稿变成可运行的原型

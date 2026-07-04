@@ -4,9 +4,9 @@ sdlc: operate
 cat: Debug
 roles: ['ops']
 prompt: |
-  users are seeing {symptom} on {where}. investigate and tell me what is going on
+  用户在 {where} 上遇到了 {symptom}。调查一下，告诉我究竟发生了什么
 slots:
-  symptom: "500 errors"
+  symptom: "500 错误"
   where: "/api/settings"
 nextHref: /en/web-quickstart#pre-fill-sessions
 src: workflows

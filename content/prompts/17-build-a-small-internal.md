@@ -4,9 +4,9 @@ sdlc: build
 cat: Implement
 roles: ['pm', 'design', 'marketing', 'docs']
 prompt: |
-  create a {tool} using HTML, CSS, and vanilla JavaScript, then open it in my browser
+  用 HTML、CSS 和原生 JavaScript 做一个 {tool}，然后在浏览器里打开它
 slots:
-  tool: "drag-and-drop Kanban board with three columns"
+  tool: "一个三列的拖拽式看板工具"
 src: teams
 title: 从零构建一个小型内部工具
 teaches: |

@@ -4,9 +4,9 @@ sdlc: build
 cat: Steer
 roles: []
 prompt: |
-  that is too much. keep only the changes to {scope} and undo your other edits
+  改动太多了。只保留对 {scope} 的改动，撤销你的其他修改
 slots:
-  scope: "the validation logic in src/forms/"
+  scope: "src/forms/ 中的校验逻辑"
 src: best-practices
 title: 收窄一处改动的范围
 teaches: |

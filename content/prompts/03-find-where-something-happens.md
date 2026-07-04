@@ -5,9 +5,9 @@ cat: Understand
 startN: 2
 roles: []
 prompt: |
-  where do we {behavior}?
+  我们在哪里实现 {behavior}？
 slots:
-  behavior: "validate uploaded file types"
+  behavior: "校验上传文件的类型"
 src: workflows
 title: 定位某个行为发生在哪里
 teaches: |

@@ -4,7 +4,7 @@ sdlc: build
 cat: Review
 roles: ['security', 'ops']
 prompt: |
-  here is my Terraform plan output. what is this going to do, and is anything here going to cause problems?
+  这是我的 Terraform plan 输出。这次改动会做什么，其中有没有可能引发问题的地方？
 paste: plan
 src: teams
 title: 应用前先审查基础设施改动

@@ -5,7 +5,7 @@ cat: Test
 startN: 4
 roles: []
 prompt: |
-  write tests for {path}, run them, and fix any failures
+  为 {path} 编写测试，运行它们，并修复任何失败
 slots:
   path: "app/parsers/feed.py"
 nextHref: /en/memory

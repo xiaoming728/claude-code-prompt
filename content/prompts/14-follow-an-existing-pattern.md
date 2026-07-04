@@ -4,10 +4,10 @@ sdlc: build
 cat: Implement
 roles: []
 prompt: |
-  look at how {example} is implemented to understand the pattern, then build {new} the same way
+  看看 {example} 是怎么实现的，理解它的模式，然后用同样的方式构建 {new}
 slots:
-  example: "the GitHub webhook handler"
-  new: "a Stripe webhook handler"
+  example: "GitHub webhook 处理器"
+  new: "一个 Stripe webhook 处理器"
 nextHref: /en/memory
 src: best-practices
 title: 沿用已有的模式

@@ -4,10 +4,10 @@ sdlc: operate
 cat: Automate
 roles: []
 prompt: |
-  set up the {server} MCP server so you can read my {data} directly
+  配置 {server} MCP 服务器，让你可以直接读取我的 {data}
 slots:
   server: "Sentry"
-  data: "error reports"
+  data: "错误报告"
 src: workflows
 title: 用 MCP 接入一个工具
 teaches: |

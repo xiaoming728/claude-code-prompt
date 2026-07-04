@@ -4,9 +4,9 @@ sdlc: build
 cat: Steer
 roles: []
 prompt: |
-  that is not right: {feedback}. try a different approach
+  这样不对：{feedback}。换一种方式试试
 slots:
-  feedback: "the function signature needs to stay backward-compatible"
+  feedback: "函数签名需要保持向后兼容"
 nextHref: /en/checkpointing
 src: best-practices
 title: 纠正走错方向的做法

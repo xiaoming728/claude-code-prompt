@@ -4,9 +4,9 @@ sdlc: discover
 cat: Understand
 roles: ['pm', 'design']
 prompt: |
-  which files would I need to touch to {change}?
+  要完成 {change}，我需要改动哪些文件？
 slots:
-  change: "add a dark mode toggle to settings"
+  change: "在设置里加一个深色模式开关"
 src: teams
 title: 动手前先评估改动范围
 teaches: |

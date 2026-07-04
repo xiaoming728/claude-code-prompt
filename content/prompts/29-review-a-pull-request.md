@@ -4,7 +4,7 @@ sdlc: build
 cat: Review
 roles: []
 prompt: |
-  review PR #{pr} and summarize what changed, then list any concerns
+  审查 PR #{pr}，总结改动了什么，然后列出任何需要关注的问题
 slots:
   pr: "247"
 needs: gh

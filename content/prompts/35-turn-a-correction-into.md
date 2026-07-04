@@ -4,9 +4,9 @@ sdlc: build
 cat: Steer
 roles: []
 prompt: |
-  you keep {mistake}. add a rule to CLAUDE.md so this stops happening
+  你一直在 {mistake}。在 CLAUDE.md 里加一条规则，让这种情况不再发生
 slots:
-  mistake: "using default exports when this project uses named exports"
+  mistake: "在这个项目使用具名导出的情况下，还用默认导出"
 nextHref: /en/memory
 src: best-practices
 title: 把一次纠正变成一条规则

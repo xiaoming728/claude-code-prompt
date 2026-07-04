@@ -4,9 +4,9 @@ sdlc: build
 cat: Test
 roles: []
 prompt: |
-  write tests for {feature} first, then implement it until they pass
+  先为 {feature} 编写测试，然后实现它直到测试全部通过
 slots:
-  feature: "the password reset flow"
+  feature: "密码重置流程"
 src: ebook
 title: 用测试驱动实现
 teaches: |

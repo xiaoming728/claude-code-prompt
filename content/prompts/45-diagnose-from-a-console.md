@@ -4,10 +4,10 @@ sdlc: operate
 cat: Incident
 roles: ['ops', 'data']
 prompt: |
-  here is a screenshot of {console}. walk me through why {resource} is failing and give me the exact commands to fix it
+  这是 {console} 的截图。给我讲讲 {resource} 为什么会失败，并给出修复它的具体命令
 slots:
-  console: "the GCP Kubernetes dashboard"
-  resource: "this pod"
+  console: "GCP Kubernetes 控制台"
+  resource: "这个 pod"
 paste: screenshot
 src: teams
 title: 依据控制台截图做诊断

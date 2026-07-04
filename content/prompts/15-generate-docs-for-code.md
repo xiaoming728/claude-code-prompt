@@ -4,9 +4,9 @@ sdlc: build
 cat: Implement
 roles: ['docs']
 prompt: |
-  find {scope} without {format} comments and add them, matching the style already used in the file
+  找出 {scope} 中缺少 {format} 注释的部分并补上，风格要和文件里已有的保持一致
 slots:
-  scope: "the public functions in src/auth/"
+  scope: "src/auth/ 中的公共函数"
   format: "JSDoc"
 src: workflows
 title: 为缺少文档的代码生成文档

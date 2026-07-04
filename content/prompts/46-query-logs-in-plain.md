@@ -4,11 +4,11 @@ sdlc: operate
 cat: Incident
 roles: ['security', 'ops', 'data']
 prompt: |
-  show me all {events} for {scope} over {timeframe}. write the query, run it, and tell me what stands out
+  给我看 {scope} 在 {timeframe} 内的所有 {events}。写出查询语句，运行它，并告诉我有什么异常
 slots:
-  events: "failed logins"
-  scope: "the auth service"
-  timeframe: "the past 24 hours"
+  events: "登录失败记录"
+  scope: "认证服务"
+  timeframe: "过去 24 小时"
 needs: db
 src: cybersecurity
 title: 用大白话查询日志
