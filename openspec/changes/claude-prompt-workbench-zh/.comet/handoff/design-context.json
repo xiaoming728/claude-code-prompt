@@ -1,0 +1,13 @@
+{
+  "change": "claude-prompt-workbench-zh",
+  "phase": "design",
+  "mode": "compact",
+  "canonical_spec": "openspec",
+  "generated_by": "comet-handoff.sh",
+  "context_hash": "111188df037e8ec9ad9cb4b2f67d15fb841ff2f2360ad25e3955cff5513e8ba2",
+  "files": [
+    { "path": "openspec/changes/claude-prompt-workbench-zh/proposal.md", "sha256": "c9d38bf8c1ec757f675896189c5bbf7a18390ccc6ef740dc38dfa91905a911ac" },
+    { "path": "openspec/changes/claude-prompt-workbench-zh/design.md", "sha256": "d7c08b0889e57a19820be15d3da0e036f8dc52acf6fe0313ad7d15e6648b2136" },
+    { "path": "openspec/changes/claude-prompt-workbench-zh/tasks.md", "sha256": "440cd4158480ee6a49865f5726e9ee3b8788bbc97046251d379eb1627a60b5dd" }
+  ]
+}

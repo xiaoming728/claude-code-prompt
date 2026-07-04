@@ -1,0 +1,32 @@
+{
+  "name": "claude-prompt-workbench-zh",
+  "version": "0.1.0",
+  "description": "中文版 Claude Code 提示词工作台",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build:content": "tsx scripts/build-content.ts",
+    "build": "npm run build:content && vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "e2e": "playwright test",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "unified": "^11.0.5",
+    "remark-parse": "^11.0.0",
+    "remark-frontmatter": "^5.0.0",
+    "remark-gfm": "^4.0.0",
+    "gray-matter": "^4.0.3",
+    "yaml": "^2.5.0"
+  },
+  "devDependencies": {
+    "vite": "^5.4.10",
+    "typescript": "^5.6.3",
+    "tsx": "^4.19.2",
+    "vitest": "^2.1.4",
+    "@playwright/test": "^1.48.2",
+    "@types/node": "^22.8.6"
+  }
+}
