@@ -59,6 +59,6 @@
 
 ## 8. 合并与收尾
 
-- [ ] 8.1 切回 `main`,merge `feat/claude-prompt-workbench-zh`(无 fast-forward,保留 feature 历史)
-- [ ] 8.2 打 tag `v0.1.0`
-- [ ] 8.3 推送 `main` 与 tag 到远端
+- [x] 8.1 切回 `main`,merge `feat/claude-prompt-workbench-zh`(无 fast-forward,保留 feature 历史) — _实际执行由 comet-archive 完成_
+- [x] 8.2 打 tag `v0.1.0` — _实际执行由 comet-archive 完成_
+- [x] 8.3 推送 `main` 与 tag 到远端 — _实际执行由 comet-archive 完成_
