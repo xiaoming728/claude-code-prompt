@@ -11,7 +11,7 @@ class CCPWTagBar extends HTMLElement {
     shadow.innerHTML = `
       <style>
         :host { display: block; margin: 12px 0; }
-        .bar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+        .bar { display: flex; flex-wrap: wrap; row-gap: 12px; column-gap: 8px; align-items: center; }
         button {
           padding: 6px 12px; border: 1px solid var(--ccpw-border);
           border-radius: 999px; background: var(--ccpw-bg);
