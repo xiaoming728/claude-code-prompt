@@ -27,6 +27,12 @@
   border-radius: 6px;
   font-size: 16px;
   color: var(--ccpw-text-2);
+  transition: background-color 150ms, border-color 150ms;
+}
+
+.ccpw-sidebar-toggle:hover {
+  background: var(--ccpw-surface);
+  border-color: var(--ccpw-accent);
 }
 
 .ccpw-body {
@@ -60,12 +66,12 @@
   border-radius: 8px;
   color: var(--ccpw-text-3);
   font-size: 13px;
-  transition: border-color 200ms, color 200ms;
+  transition: background-color 200ms, border-color 200ms;
 }
 
 .ccpw-footer button:hover {
-  border-color: var(--ccpw-text-4);
-  color: var(--ccpw-text-2);
+  background: var(--ccpw-surface);
+  border-color: var(--ccpw-accent);
 }
 
 @media (max-width: 640px) {

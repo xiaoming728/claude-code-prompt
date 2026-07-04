@@ -15,6 +15,7 @@ class CCPWSearch extends HTMLElement {
           border-radius: 12px; background: var(--ccpw-surface);
           transition: border-color 200ms;
         }
+        .wrap:hover { border-color: var(--ccpw-accent); }
         .wrap:focus-within { border-color: var(--ccpw-accent); box-shadow: 0 0 0 3px var(--ccpw-accent-bg); }
         input { flex: 1; border: none; outline: none; background: transparent; color: var(--ccpw-text); font-size: 16px; }
         svg { flex-shrink: 0; color: var(--ccpw-text-4); }

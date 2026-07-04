@@ -94,7 +94,8 @@ class CCPWPromptCard extends HTMLElement {
         }
         .card.open { border-color: var(--ccpw-border); background: var(--ccpw-surface); }
         .head { display: flex; align-items: baseline; gap: 12px; }
-        .title { flex: 1; font-size: 17.5px; font-weight: 500; color: var(--ccpw-text); cursor: pointer; }
+        .title { flex: 1; font-size: 17.5px; font-weight: 500; color: var(--ccpw-text); cursor: pointer; transition: color 150ms; }
+        .head:hover .title { color: var(--ccpw-accent); }
         .chip { font-size: 11px; padding: 3px 9px; border-radius: 999px; background: var(--ccpw-accent-bg); color: var(--ccpw-accent); font-family: var(--ccpw-mono); }
         .preview { display: block; font-family: var(--ccpw-mono); font-size: 13.5px; color: var(--ccpw-text-3); margin-top: 6px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
         .body { margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--ccpw-border-subtle); }
@@ -102,9 +103,12 @@ class CCPWPromptCard extends HTMLElement {
         .prompt-box { display: flex; align-items: center; gap: 10px; padding: 14px 16px; background: #0a0e14; color: #f0eee6; border-radius: 8px; font-family: var(--ccpw-mono); font-size: 15px; flex-wrap: wrap; min-width: 0; }
         .prompt-box > span { min-width: 0; }
         .caret { color: var(--ccpw-accent); flex-shrink: 0; }
-        .slot { background: rgba(132,204,22,0.15); color: #f0eee6; border: none; border-bottom: 1.5px dashed var(--ccpw-accent); border-radius: 4px 4px 0 0; padding: 2px 6px; margin: 0 1px; outline: none; min-width: 8ch; max-width: 100%; font-family: inherit; }
-        .copy { font-size: 12.5px; padding: 6px 12px; border-radius: 6px; background: var(--ccpw-accent); color: #0a0e14; border: none; font-weight: 500; }
-        .reset { font-size: 12.5px; padding: 6px 12px; border-radius: 6px; background: none; border: 1px solid rgba(240,238,230,0.25); color: #f0eee6; font-weight: 500; margin-left: auto; }
+        .slot { background: rgba(132,204,22,0.15); color: #f0eee6; border: none; border-bottom: 1.5px dashed var(--ccpw-accent); border-radius: 4px 4px 0 0; padding: 2px 6px; margin: 0 1px; outline: none; min-width: 8ch; max-width: 100%; font-family: inherit; transition: background-color 150ms; }
+        .slot:hover { background: rgba(132,204,22,0.24); }
+        .copy { font-size: 12.5px; padding: 6px 12px; border-radius: 6px; background: var(--ccpw-accent); color: #0a0e14; border: none; font-weight: 500; transition: filter 150ms; }
+        .copy:hover { filter: brightness(1.1); }
+        .reset { font-size: 12.5px; padding: 6px 12px; border-radius: 6px; background: none; border: 1px solid rgba(240,238,230,0.25); color: #f0eee6; font-weight: 500; margin-left: auto; transition: background-color 150ms, border-color 150ms; }
+        .reset:hover { background: rgba(240,238,230,0.1); border-color: rgba(240,238,230,0.45); }
         .teaches { font-size: 15.5px; color: var(--ccpw-text-2); line-height: 1.6; margin-top: 4px; }
         .next { display: flex; align-items: baseline; gap: 10px; margin: 14px 0 0; padding: 10px 12px; background: var(--ccpw-accent-bg); border-radius: 8px; font-size: 14.5px; }
         .next-label { font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ccpw-accent); font-weight: 600; flex-shrink: 0; font-family: var(--ccpw-mono); }
