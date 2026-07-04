@@ -80,14 +80,14 @@ class CCPWPromptCard extends HTMLElement {
         :host { display: block; }
         .card {
           border: 1px solid var(--ccpw-border-subtle);
-          border-radius: 10px; margin-bottom: 12px;
+          border-radius: 12px;
           background: var(--ccpw-bg); overflow: hidden;
-          padding: 14px 18px; transition: border-color 200ms;
+          padding: 18px 22px; transition: border-color 200ms;
           font-family: var(--ccpw-font-sans);
         }
         .card.open { border-color: var(--ccpw-border); background: var(--ccpw-surface); }
         .head { display: flex; align-items: baseline; gap: 12px; }
-        .title { flex: 1; font-size: 17px; font-weight: 500; color: var(--ccpw-text); cursor: pointer; }
+        .title { flex: 1; font-size: 17.5px; font-weight: 500; color: var(--ccpw-text); cursor: pointer; }
         .chip { font-size: 11px; padding: 3px 9px; border-radius: 999px; background: var(--ccpw-accent-bg); color: var(--ccpw-accent); font-family: var(--ccpw-mono); }
         .preview { display: block; font-family: var(--ccpw-mono); font-size: 13.5px; color: var(--ccpw-text-3); margin-top: 6px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
         .body { margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--ccpw-border-subtle); }

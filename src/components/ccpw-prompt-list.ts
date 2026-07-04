@@ -12,12 +12,13 @@ class CCPWPromptList extends HTMLElement {
     shadow.innerHTML = `<style>
       :host { display: block; }
       .group-h {
-        font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase;
-        color: var(--ccpw-text-4); margin: 24px 0 12px;
+        font-size: 12.5px; letter-spacing: 0.08em; text-transform: uppercase;
+        color: var(--ccpw-text-4); margin: 36px 0 14px;
         font-family: var(--ccpw-mono);
       }
+      .group-h:first-child { margin-top: 4px; }
       .group-h .phase { color: var(--ccpw-text-3); }
-      .grid { display: grid; gap: 12px; }
+      .grid { display: grid; gap: 14px; }
     </style><div class="root"></div>`;
     this.render();
     this.unsub = subscribe(() => this.render());
