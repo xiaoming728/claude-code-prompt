@@ -11,7 +11,7 @@ class CCPWPromptList extends HTMLElement {
   connectedCallback() {
     const shadow = this.attachShadow({ mode: 'open' });
     shadow.innerHTML = `<style>
-      :host { display: block; }
+      :host { display: block; margin-top: 24px; }
       .group-h {
         font-size: 12.5px; letter-spacing: 0.08em; text-transform: uppercase;
         color: var(--ccpw-text-4); margin: 36px 0 14px;
