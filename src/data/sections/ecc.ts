@@ -25,11 +25,6 @@ export const eccContent: SectionContent = {
   ],
   skills: [
     {
-      name: '/skill-create',
-      description: '分析本地 git 历史提取编码规范并生成 SKILL.md，加 --instincts 可同时生成 continuous-learning-v2 所需的 instinct。',
-      example: '/skill-create --instincts',
-    },
-    {
       name: '/security-scan',
       description: '对 agent、hook、MCP、权限和密钥暴露面运行 AgentShield 扫描，输出分级修复清单，加 --fix 可自动修复标记为安全的问题。',
       example: '/security-scan',
@@ -82,6 +77,11 @@ export const eccContent: SectionContent = {
       name: '/evolve',
       description: '分析 instinct 之间的关联，演化为可复用的 command、skill 或 agent。',
       example: '/evolve',
+    },
+    {
+      name: '/skill-create',
+      description: '分析本地 git 历史提取编码规范并生成 SKILL.md，加 --instincts 可同时生成 continuous-learning-v2 所需的 instinct。',
+      example: '/skill-create --instincts',
     },
     {
       name: 'npx ecc consult',

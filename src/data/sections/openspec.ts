@@ -5,8 +5,13 @@ export const openspecContent: SectionContent = {
   label: 'OpenSpec',
   repoUrl: 'https://github.com/Fission-AI/openspec',
   intro:
-    'OpenSpec 是一个面向 AI 编码助手的 spec-driven development（规格驱动开发）框架，核心目标是让人类与 AI 在动手写代码之前就对"要构建什么"达成一致。它在需求和实现之间加入一层轻量的规格（spec）文档，通过 proposal、design、tasks 等制品固化共识，从而降低 AI 辅助编码中常见的方向跑偏和返工问题。框架同时提供 CLI 工具和一组配套的 Claude Code Skills，覆盖从探索思路、提出变更、编写规格与任务、实施代码到同步规格与归档的完整工作流。',
+    'OpenSpec 是一个面向 AI 编码助手的 spec-driven development（规格驱动开发）框架，核心目标是让人类与 AI 在动手写代码之前就对"要构建什么"达成一致。它在需求和实现之间加入一层轻量的规格（spec）文档，通过 proposal、design、tasks 等制品固化共识，从而降低 AI 辅助编码中常见的方向跑偏和返工问题。框架同时提供 CLI 工具，以及一组面向 Claude Code 等受支持 AI 工具的配套斜杠命令，覆盖从探索思路、提出变更、编写规格与任务、实施代码到同步规格与归档的完整工作流。',
   install: [
+    {
+      name: 'npm install -g @fission-ai/openspec@latest',
+      description: '全局安装 OpenSpec 命令行工具，供后续在项目中运行 openspec init 等命令。',
+      example: 'npm install -g @fission-ai/openspec@latest',
+    },
     {
       name: 'openspec init',
       description: '在项目目录中初始化 OpenSpec，生成目录结构并为指定的 AI 工具（如 Claude、Cursor 等）配置集成。',

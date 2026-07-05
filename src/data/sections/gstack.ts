@@ -5,7 +5,7 @@ export const gstackContent: SectionContent = {
   label: 'gstack',
   repoUrl: 'https://github.com/garrytan/gstack',
   intro:
-    'gstack 是由 Y Combinator 总裁兼 CEO Garry Tan 开源的工具包，把 Claude Code 变成一支虚拟工程团队：仓库当前收录 44 个专职技能，对应 CEO、设计师、工程经理、发布工程师、QA 负责人、安全官、iOS 测试员等角色，全部通过 slash 命令调用（项目宣传语中的"23 个专职角色"是早期口径，实际命令数已随版本迭代增长）。项目旨在解决 AI 辅助开发中常见的问题——缺乏角色结构、规划/构建/评审/测试/发布各环节工作流碎片化、AI 生成代码缺少人工把关，以及跨会话的知识丢失。其核心理念是"配备合适工具的单人开发者能比传统团队跑得更快"，覆盖战略规划、设计、开发、测试、部署、浏览器自动化、知识沉淀、环境配置与安全防护等全流程。',
+    'gstack 是由 Y Combinator 总裁兼 CEO Garry Tan 开源的工具包，把 Claude Code 变成一支虚拟工程团队：CEO、设计师、工程经理、发布工程师、QA 负责人、安全官、iOS 测试员等角色，全部通过 slash 命令调用。项目宣传语称其为"23 个专职角色和 8 个强力工具"，但仓库实际收录的技能已随版本迭代增长到 45 个。它想解决的是 AI 辅助开发中常见的问题：缺乏角色结构、规划/构建/评审/测试/发布各环节工作流碎片化、AI 生成代码缺少人工把关，以及跨会话的知识丢失。其核心理念是"配备合适工具的单人开发者能比传统团队跑得更快"。',
   install: [
     {
       name: 'git clone gstack',
@@ -26,6 +26,7 @@ export const gstackContent: SectionContent = {
     { name: 'plan-eng-review', description: '对计划的架构设计、数据流和边界情况进行工程评审。', example: '/plan-eng-review' },
     { name: 'plan-design-review', description: '按设计维度对计划进行 0-10 分的评审打分。', example: '/plan-design-review' },
     { name: 'plan-devex-review', description: '以交互方式评审计划的开发者体验（DevEx）。', example: '/plan-devex-review' },
+    { name: 'devex-review', description: '实测开发者上手体验：走查文档、体验新手引导流程并截图报错，与 plan-devex-review 的评分做对比。', example: '/devex-review' },
     { name: 'autoplan', description: '自动依次运行 CEO、设计、工程三项评审。', example: '/autoplan' },
     { name: 'design-consultation', description: '从零开始生成一套完整的设计系统。', example: '/design-consultation' },
     { name: 'design-shotgun', description: '一次性生成 4-6 个 AI 视觉稿变体供挑选。', example: '/design-shotgun' },
@@ -39,7 +40,7 @@ export const gstackContent: SectionContent = {
     { name: 'spec', description: '把模糊的意图转化为可执行的规格说明。', example: '/spec' },
     { name: 'qa', description: '打开真实浏览器查找并修复 bug，支持自动化测试。', example: '/qa {url}', slots: { url: 'https://staging.myapp.com' } },
     { name: 'qa-only', description: '仅报告 bug，不对代码做任何修改。', example: '/qa-only' },
-    { name: 'benchmark', description: '在多个模型之间进行性能对比测试。', example: '/benchmark' },
+    { name: 'benchmark', description: '基准测量页面加载时间、Core Web Vitals 和资源体积，为每次 PR 提供前后对比。', example: '/benchmark' },
     { name: 'canary', description: '在部署后进行持续监控的巡检循环。', example: '/canary' },
     { name: 'ship', description: '同步主干、运行测试、审计覆盖率并开出 PR。', example: '/ship' },
     { name: 'land-and-deploy', description: '合并 PR 并验证生产环境健康状况。', example: '/land-and-deploy' },
@@ -72,6 +73,6 @@ export const gstackContent: SectionContent = {
     { name: 'gstack-ios-qa-daemon', description: '独立 CLI，作为 Mac 端与 iPhone 通信的代理进程。', example: 'gstack-ios-qa-daemon' },
     { name: 'gstack-ios-qa-mint', description: '独立 CLI，用于管理 iOS 设备白名单。', example: 'gstack-ios-qa-mint' },
     { name: 'gstack-analytics', description: '独立 CLI，展示个人使用情况仪表盘。', example: 'gstack-analytics' },
-    { name: 'gstack-config', description: '独立 CLI，用于读写 gstack 的配置项。', example: 'gstack-config set {key} {value}', slots: { key: 'theme', value: 'dark' } },
+    { name: 'gstack-config', description: '独立 CLI，用于读写 gstack 的配置项。', example: 'gstack-config set {key} {value}', slots: { key: 'checkpoint_mode', value: 'continuous' } },
   ],
 };
