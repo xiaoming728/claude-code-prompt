@@ -29,7 +29,7 @@
 
 选择 CSS Grid 而非 Flexbox：项目目前是纯 CSS、零构建时框架的风格，Grid 在双栏比例控制上写法比 flex-basis 更直接，改动集中在 `layout.css` 一处。
 
-## 3. 组件设计
+## 3. 组件设计F
 
 新增 `src/components/ccpw-sidebar-nav.ts`，沿用现有 Shadow DOM + 订阅全局 store 的写法（参考 `ccpw-theme-toggle.ts`）：
 
