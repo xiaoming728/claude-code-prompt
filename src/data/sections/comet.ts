@@ -31,8 +31,10 @@ export const cometContent: SectionContent = {
   skills: [
     {
       name: '/comet',
-      description: '五阶段工作流的主入口，自动检测当前 change 所处阶段并分发到对应子命令。',
-      example: '/comet',
+      description:
+        '五阶段工作流的主入口，自动检测当前 change 所处阶段并分发到对应子命令；可在命令后附带一段自然语言描述表明意图（如是否为 bug 修复），辅助判断是否命中 hotfix/tweak 预设路径或创建新 change。',
+      example: '/comet {description}',
+      slots: { description: '修复登录页在暗色模式下提交按钮不可点击的问题' },
     },
     {
       name: '/comet-open',

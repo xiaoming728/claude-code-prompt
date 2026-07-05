@@ -61,6 +61,17 @@ class CCPWSectionContent extends HTMLElement {
           font-size: 15.5px; color: var(--ccpw-text-2); line-height: 1.7;
           margin-bottom: 28px;
         }
+        .principle {
+          display: flex; align-items: baseline; gap: 10px;
+          margin: -8px 0 28px; padding: 14px 16px;
+          background: var(--ccpw-accent-bg); border-radius: 8px;
+          font-size: 14.5px; flex-wrap: wrap;
+        }
+        .principle-label {
+          font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase;
+          color: var(--ccpw-accent); font-weight: 600; flex-shrink: 0;
+          font-family: var(--ccpw-mono);
+        }
         .group-label {
           font-size: 12.5px; letter-spacing: 0.08em; text-transform: uppercase;
           color: var(--ccpw-text-4); margin: 28px 0 14px;
@@ -105,12 +116,20 @@ class CCPWSectionContent extends HTMLElement {
           font-weight: 500; transition: filter 150ms; flex-shrink: 0;
         }
         .copy:hover { filter: brightness(1.08); }
+        .reset {
+          font-size: 12.5px; padding: 6px 12px; border-radius: 6px;
+          background: none; border: 1px solid rgba(240,238,230,0.25); color: #f0eee6;
+          font-weight: 500; margin-left: auto; flex-shrink: 0;
+          transition: background-color 150ms, border-color 150ms;
+        }
+        .reset:hover { background: var(--ccpw-accent-bg); border-color: var(--ccpw-accent); }
       </style>
       <div class="head">
         <h2>${escapeHtml(c.label)}</h2>
         <a class="repo-link" href="${escapeHtml(c.repoUrl)}" target="_blank" rel="noopener noreferrer">${escapeHtml(c.repoUrl.replace('https://github.com/', 'github.com/'))}</a>
       </div>
       <p class="intro">${escapeHtml(c.intro)}</p>
+      ${c.principle ? `<div class="principle"><span class="principle-label">核心理念</span><span>${escapeHtml(c.principle)}</span></div>` : ''}
       ${c.install.length ? `<div class="group-label">安装命令</div><div class="cmd-list">${c.install.map(cmd => this.renderCmd(cmd)).join('')}</div>` : ''}
       ${c.skills.length ? `<div class="group-label">Skill 命令</div><div class="cmd-list">${c.skills.map(cmd => this.renderCmd(cmd)).join('')}</div>` : ''}
       ${c.usage.length ? `<div class="group-label">使用命令</div><div class="cmd-list">${c.usage.map(cmd => this.renderCmd(cmd)).join('')}</div>` : ''}
@@ -128,6 +147,15 @@ class CCPWSectionContent extends HTMLElement {
         this.copy(text, name);
       });
     });
+    shadow.querySelectorAll<HTMLButtonElement>('.reset').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const box = btn.closest('.example-box') as HTMLElement;
+        box.querySelectorAll<HTMLInputElement>('.slot').forEach(input => {
+          input.value = input.dataset.default ?? '';
+          input.size = Math.max(input.value.length, 6);
+        });
+      });
+    });
     shadow.querySelectorAll<HTMLInputElement>('.slot').forEach(input => {
       // 输入框宽度跟着内容动态调整,避免长文本被固定宽度截断/隐藏
       input.addEventListener('input', () => {
@@ -137,6 +165,7 @@ class CCPWSectionContent extends HTMLElement {
   }
 
   private renderCmd(cmd: SectionCommand): string {
+    const hasSlots = !!cmd.example && /\{[\w-]+\}/.test(cmd.example);
     return `
       <div class="cmd">
         <div class="cmd-name">${escapeHtml(cmd.name)}</div>
@@ -145,6 +174,7 @@ class CCPWSectionContent extends HTMLElement {
           <div class="example-box">
             <span class="caret" style="color:var(--ccpw-accent);flex-shrink:0;">❯</span>
             <code class="example-text">${this.renderExampleBody(cmd)}</code>
+            ${hasSlots ? `<button type="button" class="reset">重置</button>` : ''}
             <button type="button" class="copy" data-name="${escapeHtml(cmd.name)}" data-template="${escapeHtml(cmd.example)}">${this.copiedName === cmd.name ? '已复制' : '复制'}</button>
           </div>
         ` : ''}
@@ -160,7 +190,7 @@ class CCPWSectionContent extends HTMLElement {
       const key = m[1]!;
       const val = cmd.slots?.[key] ?? '';
       const size = Math.max(val.length, key.length, 6);
-      return `<input type="text" class="slot" data-key="${escapeHtml(key)}" value="${escapeHtml(val)}" placeholder="${escapeHtml(key)}" size="${size}" />`;
+      return `<input type="text" class="slot" data-key="${escapeHtml(key)}" data-default="${escapeHtml(val)}" value="${escapeHtml(val)}" placeholder="${escapeHtml(key)}" size="${size}" />`;
     }).join('');
   }
 }

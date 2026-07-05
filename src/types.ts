@@ -85,6 +85,7 @@ export interface SectionContent {
   label: string;
   repoUrl: string;
   intro: string;
+  principle?: string;
   install: SectionCommand[];
   skills: SectionCommand[];
   usage: SectionCommand[];
