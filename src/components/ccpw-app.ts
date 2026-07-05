@@ -16,8 +16,10 @@ import { superpowersContent } from '../data/sections/superpowers.js';
 import { eccContent } from '../data/sections/ecc.js';
 import { gstackContent } from '../data/sections/gstack.js';
 import { cometContent } from '../data/sections/comet.js';
+import { planModeContent } from '../data/sections/plan-mode.js';
 
 const SECTION_DATA: Record<string, SectionContent> = {
+  'plan-mode': planModeContent,
   comet: cometContent,
   openspec: openspecContent,
   superpowers: superpowersContent,

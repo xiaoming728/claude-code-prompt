@@ -8,6 +8,7 @@ export const NAV_GROUPS: NavGroup[] = [
     label: 'Claude Code',
     items: [
       { id: 'prompts', label: '提示词' },
+      { id: 'plan-mode', label: '规划模式' },
     ],
   },
   {
