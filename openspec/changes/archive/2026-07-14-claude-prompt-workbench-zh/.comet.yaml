@@ -17,6 +17,6 @@ verification_report: docs/superpowers/reports/2026-07-14-claude-prompt-workbench
 branch_status: handled
 created_at: 2026-07-04
 verified_at: 2026-07-14
-archived: false
+archived: true
 handoff_context: openspec/changes/claude-prompt-workbench-zh/.comet/handoff/design-context.json
 handoff_hash: 111188df037e8ec9ad9cb4b2f67d15fb841ff2f2360ad25e3955cff5513e8ba2

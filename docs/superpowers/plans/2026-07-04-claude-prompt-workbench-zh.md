@@ -2,6 +2,7 @@
 change: claude-prompt-workbench-zh
 design-doc: docs/superpowers/specs/2026-07-04-claude-prompt-workbench-zh-design.md
 base-ref: empty-repo
+archived-with: 2026-07-14-claude-prompt-workbench-zh
 ---
 
 # Claude Prompt Workbench ZH Implementation Plan
@@ -28,6 +29,7 @@ base-ref: empty-repo
 - 中文 UI 文案,标签名沿用官方英文(Understand / Plan / Product / Design / On-call 等),仅阶段与角色分类、UI 操作文案翻译为中文
 - 每次完成一个 task → commit(commit message 体现设计意图)
 
+archived-with: 2026-07-14-claude-prompt-workbench-zh
 ---
 
 ## Task 1: 项目骨架与基础设施
@@ -241,6 +243,7 @@ git add -A
 git commit -m "chore: scaffold project (package.json, tsconfig, vite, vitest, playwright)"
 ```
 
+archived-with: 2026-07-14-claude-prompt-workbench-zh
 ---
 
 ## Task 2: 内容数据迁移(52 条 prompt 的 md 文件)
@@ -262,6 +265,7 @@ git commit -m "chore: scaffold project (package.json, tsconfig, vite, vitest, pl
 每条 md 文件结构:
 
 ```markdown
+archived-with: 2026-07-14-claude-prompt-workbench-zh
 ---
 id: get-oriented-in-a
 sdlc: discover
@@ -277,6 +281,7 @@ teaches: |
   描述你想知道什么,而非指定要读哪些文件。Claude 会自行探索项目,并返回一份它是如何组合在一起的总结。
 next: |
   运行 `/init` 来初始化 `CLAUDE.md`,这样 Claude 每次会话都会带着这个上下文。
+archived-with: 2026-07-14-claude-prompt-workbench-zh
 ---
 ```
 
@@ -313,6 +318,7 @@ git add content/prompts/
 git commit -m "content: add 52 prompt markdown files (zh translation)"
 ```
 
+archived-with: 2026-07-14-claude-prompt-workbench-zh
 ---
 
 ## Task 3: 内容编译管线(`scripts/build-content.ts`)
@@ -336,6 +342,7 @@ prompt: give me an overview
 src: workflows
 title: 测试
 teaches: 测试说明
+archived-with: 2026-07-14-claude-prompt-workbench-zh
 ---
 
 正文内容(可忽略)。
@@ -519,6 +526,7 @@ git add scripts/build-content.ts tests/unit/build-content.test.ts public/prompts
 git commit -m "feat(content): remark-based md → JSON content pipeline with TDD validation"
 ```
 
+archived-with: 2026-07-14-claude-prompt-workbench-zh
 ---
 
 ## Task 4: 类型定义 `src/types.ts`
@@ -612,6 +620,7 @@ git add src/types.ts
 git commit -m "feat(types): define core domain types (Prompt, I18nLabels, I18nTaxonomy, Override)"
 ```
 
+archived-with: 2026-07-14-claude-prompt-workbench-zh
 ---
 
 ## Task 5: 状态管理 `src/state/store.ts`
@@ -749,6 +758,7 @@ git add src/state/store.ts tests/unit/store.test.ts
 git commit -m "feat(state): pub/sub store with theme/q/sel/overrides"
 ```
 
+archived-with: 2026-07-14-claude-prompt-workbench-zh
 ---
 
 ## Task 6: 持久化 `src/state/persistence.ts`
@@ -939,6 +949,7 @@ git add src/state/persistence.ts tests/unit/persistence.test.ts
 git commit -m "feat(state): localStorage persistence with ccpw:zh:v1:* namespace and memory fallback"
 ```
 
+archived-with: 2026-07-14-claude-prompt-workbench-zh
 ---
 
 ## Task 7: 主题 `src/state/theme.ts`
@@ -1002,6 +1013,7 @@ git add src/state/theme.ts
 git commit -m "feat(state): theme module (system/light/dark, matchMedia follow)"
 ```
 
+archived-with: 2026-07-14-claude-prompt-workbench-zh
 ---
 
 ## Task 8: 动效 `src/state/motion.ts`
@@ -1035,6 +1047,7 @@ git add src/state/motion.ts
 git commit -m "feat(state): motion module (prefers-reduced-motion detection)"
 ```
 
+archived-with: 2026-07-14-claude-prompt-workbench-zh
 ---
 
 ## Task 9: 数据加载 `src/data/prompts.ts`
@@ -1286,6 +1299,7 @@ git add src/data/prompts.ts src/data/i18n.ts tests/unit/prompts.test.ts
 git commit -m "feat(data): catalog loader with TDD validation, filter, group, i18n fallback"
 ```
 
+archived-with: 2026-07-14-claude-prompt-workbench-zh
 ---
 
 ## Task 10: 主题 tokens 与动效 CSS
@@ -1394,6 +1408,7 @@ git add src/theme src/styles index.html
 git commit -m "feat(styles): css reset, theme tokens (light/dark), animations"
 ```
 
+archived-with: 2026-07-14-claude-prompt-workbench-zh
 ---
 
 ## Task 11: Web Components 根 `<ccpw-app>`
@@ -1476,6 +1491,7 @@ git add src/components/ccpw-app.ts src/main.ts
 git commit -m "feat(components): ccpw-app root with bootstrap + reset-all button"
 ```
 
+archived-with: 2026-07-14-claude-prompt-workbench-zh
 ---
 
 ## Task 12: Web Components `<ccpw-search>`
@@ -1543,6 +1559,7 @@ git add src/components/ccpw-search.ts
 git commit -m "feat(components): ccpw-search with q ↔ store sync"
 ```
 
+archived-with: 2026-07-14-claude-prompt-workbench-zh
 ---
 
 ## Task 13: Web Components `<ccpw-tag-bar>`
@@ -1630,6 +1647,7 @@ git add src/components/ccpw-tag-bar.ts
 git commit -m "feat(components): ccpw-tag-bar with 19 roles + start-here toggle"
 ```
 
+archived-with: 2026-07-14-claude-prompt-workbench-zh
 ---
 
 ## Task 14: Web Components `<ccpw-prompt-list>` 与 `<ccpw-empty-state>`
@@ -1766,6 +1784,7 @@ git add src/components/ccpw-prompt-list.ts src/components/ccpw-empty-state.ts
 git commit -m "feat(components): ccpw-prompt-list (grouped/stagger) + ccpw-empty-state"
 ```
 
+archived-with: 2026-07-14-claude-prompt-workbench-zh
 ---
 
 ## Task 15: Web Components `<ccpw-prompt-card>`(slot 编辑 + 复制 + 恢复)
@@ -1953,6 +1972,7 @@ git add src/components/ccpw-prompt-card.ts
 git commit -m "feat(components): ccpw-prompt-card with slot edit, copy, restore-default"
 ```
 
+archived-with: 2026-07-14-claude-prompt-workbench-zh
 ---
 
 ## Task 16: Web Components `<ccpw-theme-toggle>`
@@ -2020,6 +2040,7 @@ git add src/components/ccpw-theme-toggle.ts
 git commit -m "feat(components): ccpw-theme-toggle (system/light/dark cycle)"
 ```
 
+archived-with: 2026-07-14-claude-prompt-workbench-zh
 ---
 
 ## Task 17: README 与验收
@@ -2085,6 +2106,7 @@ git add README.md
 git commit -m "docs: README with run/build/deploy instructions"
 ```
 
+archived-with: 2026-07-14-claude-prompt-workbench-zh
 ---
 
 ## Task 18: 端到端构建与本地预览
@@ -2137,6 +2159,7 @@ git add -A
 git commit -m "chore: e2e verification pass (manual acceptance)"
 ```
 
+archived-with: 2026-07-14-claude-prompt-workbench-zh
 ---
 
 ## 阶段退出检查

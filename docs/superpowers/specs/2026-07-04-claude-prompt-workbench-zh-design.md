@@ -2,6 +2,8 @@
 comet_change: claude-prompt-workbench-zh
 role: technical-design
 canonical_spec: openspec
+archived-with: 2026-07-14-claude-prompt-workbench-zh
+status: final
 ---
 
 # Claude Prompt Workbench ZH — Technical Design
@@ -105,6 +107,8 @@ public/prompts.json               ─── 运行时唯一数据源
 ### frontmatter schema
 
 ```yaml
+archived-with: 2026-07-14-claude-prompt-workbench-zh
+status: final
 ---
 id: get-oriented-in-a
 sdlc: discover
@@ -120,6 +124,8 @@ teaches: |
   描述你想知道什么,而非指定要读哪些文件。Claude 会自行探索项目,并返回一份它是如何组合在一起的总结。
 next: |
   运行 `/init` 来初始化 `CLAUDE.md`,这样 Claude 每次会话都会带着这个上下文。
+archived-with: 2026-07-14-claude-prompt-workbench-zh
+status: final
 ---
 ```
 
