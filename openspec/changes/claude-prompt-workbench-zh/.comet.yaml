@@ -1,5 +1,5 @@
 workflow: full
-phase: verify
+phase: archive
 context_compression: off
 build_mode: subagent-driven-development
 build_pause: null
@@ -12,11 +12,11 @@ auto_transition: true
 base_ref: null
 design_doc: docs/superpowers/specs/2026-07-04-claude-prompt-workbench-zh-design.md
 plan: docs/superpowers/plans/2026-07-04-claude-prompt-workbench-zh.md
-verify_result: pending
+verify_result: pass
 verification_report: docs/superpowers/reports/2026-07-14-claude-prompt-workbench-zh-verify.md
 branch_status: handled
 created_at: 2026-07-04
-verified_at: null
+verified_at: 2026-07-14
 archived: false
 handoff_context: openspec/changes/claude-prompt-workbench-zh/.comet/handoff/design-context.json
 handoff_hash: 111188df037e8ec9ad9cb4b2f67d15fb841ff2f2360ad25e3955cff5513e8ba2
