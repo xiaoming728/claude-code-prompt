@@ -29,7 +29,7 @@
 
 选择 CSS Grid 而非 Flexbox：项目目前是纯 CSS、零构建时框架的风格，Grid 在双栏比例控制上写法比 flex-basis 更直接，改动集中在 `layout.css` 一处。
 
-## 3. 组件设计F
+## 3. 组件设计
 
 新增 `src/components/ccpw-sidebar-nav.ts`，沿用现有 Shadow DOM + 订阅全局 store 的写法（参考 `ccpw-theme-toggle.ts`）：
 
@@ -82,3 +82,13 @@ const NAV_ITEMS: { id: string; label: string }[] = [
 - 除「提示词」外的任何具体内容板块（板块内容是什么、有多少个，都还没定）。
 - 侧边栏的搜索/过滤能力（搜索框仍然只搜提示词，不搜导航项）。
 - 桌面端侧边栏的折叠/隐藏（本次桌面端侧边栏始终展开显示）。
+
+## 8. Implementation Divergence
+
+本设计文档写作时（第 4 节）明确把"除提示词外的任何第二个内容板块"划为不在范围内。但在同一个 build 阶段的后续迭代中，用户直接提出并确认了新增需求，实际实现远超本节原定边界：
+
+- `NAV_ITEMS` 演进为分组结构 `NAV_GROUPS`（`Claude Code` / `AI 编码最佳实践`两组），而不是本文档设想的单条目扁平列表。
+- 新增 6 个真实内容板块并全部接入 `activeSection` 路由：OpenSpec、Superpowers、ECC、gstack、Comet、规划模式（Plan Mode）。每个板块的命令/示例内容均基于对应项目的真实文档或已安装包核对，经过 100 分制评审循环（>95 分）。
+- 其中"规划模式"板块的信息来源是 `https://code.claude.com/docs/en/permission-modes`——与本 change 的 `proposal.md`"不影响范围"一节"不翻译或重建 code.claude.com 其他文档页面"这条描述不再一致；该板块并非逐句翻译官方页面，而是围绕其核心机制（权限模式切换、`/plan`、Ctrl+G 改计划）重新组织为工作台自己的教学内容，但信息源头确实来自该文档。
+
+**处理方式**：按用户决策，不回退重写本设计文档或 proposal，原文保留作为该次设计会话的真实历史记录；此偏差在 comet-verify 归档前的验证报告中登记为已知且已接受的范围扩展，不视为验证失败项。归档时 `design.md`/`proposal.md`（以及本文档）将按 comet-archive 惯例标记为 `superseded-by-main-spec`，后续如需再扩展板块，应以本文档记录的实际结构（`NAV_GROUPS`）为准，而非第 3/7 节的原始设想。
